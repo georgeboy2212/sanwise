@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- uikit CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/css/uikit.min.css" />
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+      <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+<header>
+        <nav uk-sticky="bottom: #uk-navbar-container; sel-target: .uk-navbar-container; cls-active:uk-navbar-sticky;" class="uk-navbar-container uk-navbar-transparent uk-flex-column uk-flex-top uk-box-shadow-medium" data-uk-navbar data-uk-toggle="media:@s; cls: uk-flex-row uk-flex-top; mode:media" style="background-color:transparent;">
+         
+               <button type="button" data-uk-toggle="target:" class="uk-navbar-toggle uk-hidden@s" data-uk-navbar-toggle-icon uk-toggle="target: #sidenav" style="padding-left:10px;">
+               </button><br></br>
+               <div style="position:absolute" style="">
+               <span class="sanwiselogo" style="width:200px; margin-left:50px; padding-top:23px; position:absolute; font-family: 'open sans', sans-serif; color:#17202a; font-size:6vw; font-weight:bold" class="uk-navbar-item uk-logo uk-navbar-toggle uk-hidden@s" href="#"><i style="padding-bottom:0px; padding-top:0px; margin-right:8px; color:#17202a;" class="fas fa-brain uk-hidden@s"></i>
+                </span>
+                </div>
+               
+              
+               
+              
+           
+           <div class="" style="width:100%; margin-left:auto; margin-right:auto">
+            <div class="uk-navbar-left uk-visible@s uk-navbar-transparent" style="margin-left:auto; margin-right:auto; width:100%; position:absolute">
+                <ul data-uk-toggle="media:@s; cls: uk-navbar-nav uk-padding-remove; mode: media" class="uk-nav uk-nav-primary uk-padding-small" style="margin-left:auto; margin-right:auto;">
+                    <a class="uk-navbar-item uk-logo" href="" style="padding-bottom:10px; font-size:3vw; color:#ffffff; font-weight:bold"><i class="fas fa-brain"></i>sanwise</a>
+                  
+                </a>
+     
+        
+            <li class="uk-text-middle" style="">
+                <a  class="uk-text-capitalize" href="#" style="color:#fdfefe; font-family: 'Roboto', sans-serif; font-size:1.3vw; font-weight:bold">Dashboards  <i class="fas fa-chevron-down" style="color:#fdfefe; font-size:1.5vw"></i></a>
+                <div class="uk-navbar-dropdown" style="background-color:#FFFFFF">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li class="uk-active"><span class="uk-text-left"><strong>Dashboards Customized</strong></span></li>
+                        <li><a href="#" class="uk-text-left" style="text-align:left">Customización de tableros de control</a></li>
+                        
+                                 
+                    </ul>
+                    
+                </div>
+            </li>
+                 
+                    <li>
+                        <a class="uk-text-capitalize" href="#"  style="color:#fdfefe; font-family: 'Roboto', sans-serif; font-weight:bold; font-size:1.3vw">Trainings <i class="fas fa-chevron-down" style="font-size:1.5vw"></i></a>
+                        <div class="uk-navbar-dropdown" style="background-color:#FFFFFF">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><span class="uk-text-left"><strong>Nuestros Entrenamientos y Talleres</strong></span></li>
+                                <li><a href="#">Google WorkSpace</a></li>
+                            
+                                 
+                           </ul>
+                      </div>
+                 </li>
+                   
+                   
+                    <li>
+                        <a class="uk-text-capitalize" href="#" style="color:#fdfefe; font-family: 'Roboto', sans-serif; font-weight:bold; font-size:1.3vw">Google WorkSpace Suite <i class="fas fa-chevron-down" style="font-size:1.5vw"></i></a>
+                        <div class="uk-navbar-dropdown" style="background-color:#FFFFFF">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><span class="uk-text-left"><strong>Conoce más de I Love Google WorkSpace</strong></span></li>
+                                <li><a href="#">I Love Google WorkSpace</a></li>
+                                
+                                 
+                           </ul>
+                      </div>
+                 </li>
+
+<li>
+                        <a class="uk-text-capitalize" href="#" style="color:#fdfefe; font-family: 'Roboto', sans-serif; font-weight:bold; font-size:1.3vw">Contáctanos <i class="fas fa-chevron-down" style="font-size:1.5vw"></i></a>
+                        <div class="uk-navbar-dropdown" style="background-color:#FFFFFF">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><span class="uk-text-left"><strong>Empecemos una conversación</strong></span></li>
+                                <li><a href="#">Contactarme con un asesor</a></li>
+                                
+                                 
+                           </ul>
+                      </div>
+                 </li>
+                
+                    
+                   
+             </ul>
+             
+        </div>
+    </div>
+</nav>
+    <div>
+        {% block content %} {% endblock %}
+    </div>
+</header>
+
+<footer class="uk-block uk-block-secondary" id="footer" style="background-color:#f8f8f8;">
+    <div class="uk-container uk-container-center uk-text-center" style="">
+       <a class="sanwiselogo" style="padding-top:15px; font-family: 'Open Sans', sans-serif; color:#17202a; font-size:25px; font-weight:bold" class="uk-navbar-item uk-logo" href="#"><i style="padding-right:5px; color:#17202a; font-size:25px" class="fas fa-brain"></i>sanwise</a>
+      <ul class="uk-subnav uk-subnav-line uk-flex-center" style="background-color:#f8f8f8;">
+        <li><a class="uk-text-capitalize" href="/dashboards" style="color:#566573;">Dashboards</a></li>
+        <li><a class="uk-text-capitalize" href="/trainings" style="color:#566573;">Trainings</a></li>
+        <li><a class="uk-text-capitalize"  href="/googleworkspace" style="color:#566573;">Google WorkSpace Suite</a></li>
+        <li><a class="uk-text-capitalize" href="/contact" style="color:#566573;">Contáctanos</a></li>
+      </ul>
+      <span class="uk-text-capitalize" style="font-size:2.2vh; color:#566573;">Copyright &copy; 2021</span>
+    </div>
+  </footer>
+
+<div id="sidenav" uk-offcanvas="overlay: true" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar" style="background-color: #f7f9f9">
+        <button class="uk-offcanvas-close" type="button" uk-close style="color:black"></button>
+        <ul class="uk-nav">
+                <a class="sanwiselogo" style="font-family: 'open sans', sans-serif; color:#17202a; font-size:6vw; font-weight:bold" class="uk-navbar-item uk-logo" href="#"><i style="padding-bottom:30px; padding-top:50px; padding-right:5px; color:#17202a; font-size:6vw;" class="fas fa-brain"></i>sanwise
+                  
+                </a>
+            <li><span class="uk-text-capitalize" style="color:#17202a ; font-family: 'Open Sans', sans-serif;  font-size:1.6vh; margin-bottom:15px; font-weight:bold" class="uk-text-default" href="#">Servicios</span></li>
+              <hr style="border-color:#d5d8dc;" class="uk-margin-small">
+            <li><a class="uk-text-capitalize" style="color:#17202a ; font-family: 'Open Sans', sans-serif;  font-size:1.8vh" class="uk-text-default" href="#"><i style="color:#17202a ; font-size:1.8vh; padding-right:5px;" class="fas fa-chart-line"></i> Dashboards</a></li>
+             
+            <li><a class="uk-text-capitalize" style="color:#17202a; font-family: 'Open Sans', sans-serif;  font-size:1.8vh" class="uk-text-default" href="#"><i style="color:#17202a; font-size:1.8vh; padding-right:5px;" class="fas fa-users"></i>  Trainings</a></li>
+            
+            <li><a class="uk-text-capitalize" style="width:100%; color:#17202a; font-family: 'Open Sans', sans-serif;  font-size:1.8vh; margin-bottom:30px;" class="uk-text-default" href="#"><i style="color:#17202a; font-size:1.8vh; padding-right:5px;" class="fas fa-hands-helping"></i> Google WorkSpace Suite</a></li>
+             
+             <li><span class="uk-text-capitalize" style="margin-top:30px; color:#17202a ; font-family: 'Open Sans', sans-serif;  font-size:1.6vh; margin-bottom:15px; font-weight:bold" class="uk-text-default" href="#">¿Necesitas ayuda?</span></li>
+             <hr style="border-color:#d5d8dc;" class="uk-margin-small">
+            <li><a style="color:#17202a; font-family: 'Open Sans', sans-serif;  font-size:1.8vh" class="uk-text-default" href="#"><i style="color:#17202a; font-size:1.8vh; padding-right:5px; padding-top:0;" class="fas fa-headset"></i>  Contáctanos</a></li>
+            
+        </ul>
+    </div>
+</div>
+  </body>
+
+     <!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+</html>

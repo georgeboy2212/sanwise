@@ -1,0 +1,42 @@
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/css/uikit.min.css" />
+    <title>sanwise</title>
+</head>
+
+<body>
+   {% block content %}
+
+<div>
+<h1>Thanks for Subscribing</h1>
+<small>Please Confirm</small>
+<br><br/>
+<table class="uk-table uk-table-divider uk-table-striped uk-table-hover">
+    <caption></caption>
+    <thead>
+        <tr>
+            <th>Nombres Completos</th>
+            <th>Email</th>
+            <th>Empresa</th>
+            <th>Celular</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ nombres_completos}}</td>
+            <td>{{ email }}</td>
+            <td>{{ empresa }}</td>
+            <td>{{ celular }}</td>
+        </tr>
+    </tbody>
+</table>
+  
+</div>
+
+{% endblock %}
+
+</body>
+</html>
