@@ -5,7 +5,9 @@ from flask import Flask, render_template, request, url_for, jsonify, abort
 app = Flask(__name__)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
+    app.jinja_env.auto_reload = True
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.run(debug=True)
 
 
 @app.route('/')

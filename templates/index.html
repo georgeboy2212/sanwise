@@ -7,62 +7,65 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+<script src="{{url_for('static', filename='js/typed.js')}}"></script>
     <title>sanwise</title>
 </head>
 {% extends 'base.html' %}
 
 <body>
    {% block content %}
+ 
 
-<div class="uk-position-relative uk-visible-toggle uk-light uk-text-middle" tabindex="-1" uk-slideshow="autoplay: true autoplay-interval: 6000 animation: push pause-on-hover: false">
 
-            <ul class="uk-slideshow-items">
-                <li>
-                    <img style="filter:brightness(92%)" data-src="https://images.pexels.com/photos/5673498/pexels-photo-5673498.jpeg?cs=srgb&dl=pexels-sora-shimazaki-5673498.jpg&fm=jpg" alt="" uk-cover uk-img>
-                    <div style="padding-top:14%; padding-left: 50%; position:absolute; background-color:transparent;" class="uk-card uk-card-body uk-text-middle" uk-scrollspy="cls: uk-animation-slide-right; repeat: true">
-                        <h3 style="font-family:'Roboto', sans-serif; font-weight:bold; font-size:5.9vw; color:#f4d03f" class="uk-card-title uk-text-middle">Dashboards</h3>
-                    </div>
-                        
-                   <div style="position:absolute; background-color:transparent;" class="" uk-scrollspy="cls: uk-animation-slide-top; repeat: true">
-                        <p style="margin-bottom:0; padding-bottom:0; padding-top:22%; padding-left:50%; padding-right:30px; font-family:'Roboto', sans-serif; font-size:3.2vw; color:#fdfefe; font-weight:400">Controla tu negocio en tiempo real, toma mejores decisiones basadas en datos</p>
-                    </div>
-                    
-                </li>    
-               
-                <li>
-                    <img style="filter:brightness(80%)" data-src="https://images.pexels.com/photos/3182797/pexels-photo-3182797.jpeg?cs=srgb&dl=pexels-fauxels-3182797.jpg&fm=jpg" alt="" uk-cover uk-img>
-                    <div style="padding-top:14%; padding-left: 50%; position:absolute; background-color:transparent;" class="uk-card uk-card-body uk-text-middle" uk-scrollspy="cls: uk-animation-slide-bottom; repeat: true">
-                        <h3 style="font-family:'Roboto', sans-serif; font-weight:bold; font-size:5.9vw; color:  #2ecc71" class="uk-card-title uk-text-middle">Entrenamientos</h3>
-                    </div>
-                    <div style="position:absolute; background-color:transparent;" class="" uk-scrollspy="cls: uk-animation-slide-top; repeat: true">
-                        <p style="margin-bottom:0; padding-bottom:0; padding-top:22%; padding-left:50%; padding-right:30px; font-family:'Roboto', sans-serif; font-size:3.2vw; color:#fdfefe; font-weight:400">Capacitamos a tu equipo de trabajo en herramientas basadas en Google WorkSpace</p>
-                        
-                    </div>
-                </li>
-                <li>
-                    <img style="filter:brightness(92%)" data-src="https://images.pexels.com/photos/8088450/pexels-photo-8088450.jpeg?cs=srgb&dl=pexels-cottonbro-8088450.jpg&fm=jpg" alt="" uk-cover uk-img>
-                    <div style="padding-top:14%; padding-left:50%; position:absolute; background-color:transparent;" class="uk-card uk-card-body uk-text-middle" uk-scrollspy="cls: uk-animation-slide-top; repeat: true">
-                        <h3 style="font-family:'Roboto', sans-serif; font-weight:bold; font-size:5.9vw; color:#fb053d;" class="uk-card-title uk-text-middle">Colaboración</h3>
-                    </div>
-                    <div style="padding-top:11%; padding-left:50%; position:absolute; background-color:transparent;" class="" uk-scrollspy="cls: uk-animation-fade; repeat: true">
-                        <p style="padding-right: 30px; padding-top:22%; margin-bottom:0; padding-bottom:0; font-family:'Roboto', sans-serif; font-size:3.2vw; color:#fdfefe; font-weight:400">Empodera a tu equipo de trabajo con el uso de herramientas colaborativas</p>
-                        
-                    </div>
-                </li>
-            </ul>
+<div class="uk-container uk-vertical-align" style="max-width:100%; width:100%; padding:0; margin:0;">
 
-            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
-            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+  <div class="uk-width-1-1@m uk-vertical-align">
+  <div class="uk-cover-container uk-vertical-align" style="height:45vw">
+    <video uk-cover autoplay loop muted>
+        <source src="/static/video/Hud.mp4" type="video/mp4">
+    </video>
 
+
+    <div class="uk-text-left" uk-grid style="padding-top:11%">
+    <div class="uk-width-1-1">
+        <div class="uk-card uk-card-body uk-vertical-align" style="padding-left:22px">
+        <h1 class="uk-text-left uk-position-relative uk-vertical" style="width:100%; padding-top:0px; padding-left:0px; font-size:6vw; color:#ffffff; margin:0; font-family: 'Audiowide', cursive; font-weight:bold;">Sé más productivo</h1>
         </div>
+    </div>
+    <div id="typed" class="uk-position-cover uk-width-1-1 uk-flex uk-flex-left uk-flex-middle" style="margin-top:45px; padding:0">
+        <div class="uk-card uk-card-body" style="padding:0"></div>
+
+         <a class="element uk-text-left uk-width-1-1@s uk-width-1-1@m uk-width-1-1@l uk-vertical-align-middle" style="width:100%; padding-left:25px; width:auto; font-size:3.0vw; color:#ffffff; font-family: 'Audiowide', cursive;"></a>
+                  </a>
+    </div>
+</div>
+    </div>
+  </div>
+  </div>
+    </div>
+
+<script>
+
+    var typed = new Typed('.element', options);
+  
+    var options = {
+    strings: ['Comis'],
+    typeSpeed: 40
+    };
+
+    
+
+</script>
+
 
 <div class="uk-width-1-1@s uk-width-1-1@m uk-width-1-1@l uk-text-center" style="margin-top:60px; margin-left:auto; margin-right:auto;">
-    <i style="position:absolute; font-size:5vw; color: #f4d03f ; margin-right:5px;" class="fas fa-circle"></i><i style="margin-left:20px; font-size:5vw; color: #1700fc;" class="fas fa-circle"></i>
+    <i style="position:relative; font-size:5vw; color: #f4d03f ; margin-right:5px;" class="fas fa-circle"></i><i style="margin-left:20px; font-size:5vw; color: #1700fc;" class="fas fa-circle"></i>
     </div>
 
 <div uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card-body; delay: 1500; repeat: true">
     <div class="uk-card uk-card-body uk-width-1-2@s uk-width-1-2@m uk-width-1-2@l uk-text-center" style="padding:0px; margin-left:auto; margin-right:auto; margin-top:40px; margin-bottom:0px">
-    <h1 class="uk-card-title uk-text-center" style="padding-right:35px; padding-left:60px; margin-left:auto; margin-right:auto; color: #00000; font-family:'Open Sans', sans-serif; font-weight:700; font-size:5.9vw">Productividad y colaboración para todos los equipos</h1>
+    <h1 class="uk-card-title uk-text-center" style="padding-right:35px; padding-left:60px; margin-left:auto; margin-right:auto; color: #00000; font-family:'Open Sans', sans-serif; font-weight:700; font-size:5.9vw">Productividad y colaboración</h1>
     </div>
 </div>
 
@@ -78,7 +81,7 @@
     </div>
 
     
-<div class="uk-card uk-grid-collapse uk-child-width-1-2@s uk-margin uk-cover-background" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card-media; delay: 2200; repeat: true" style="background-image:url('/static/img/geo2.png'); background-repeat: no-repeat;">
+<div class="uk-card uk-grid-collapse uk-child-width-1-2@s uk-margin uk-cover-background" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card-media; delay: 2200; repeat: true" style="padding-left:30px;">
     <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
     
          <video class="uk-card-media" style="padding:30px; border-radius:12px;" src="https://kstatic.googleusercontent.com/files/be1405211a291aa959a67fd0a1053c9ba64c96a6bd8cb38372ee499f59b6db51cfc085659a5e69b3580787ecf5dc4b1b97f2d3d5a31b6f0e8e44840455736e23" 
@@ -90,7 +93,7 @@
         <div class="uk-card-body " uk-scrollspy="cls: uk-animation-fade; target: .uk-card-title; delay: 1500; repeat: true">
        
         
-            <h3 class="uk-card-title" style="background-color:transparent; color:#eaea04; font-family:'Open Sans', sans-serif; font-weight:700; font-size:5.9vw; position:relative; padding-top:30px">Crea, innova, conecta y colabora</h3>
+            <h3 class="uk-card-title" style="background-color:transparent; color:#000; font-family:'Open Sans', sans-serif; font-weight:700; font-size:5.9vw; position:relative; padding-top:15px">Crea, innova, conecta y colabora</h3>
             <p class="uk-card-title" style="color:#808b96; font-family:'Open Sans', sans-serif; font-weight:700; font-size:3.2vw; position:relative">Una solución innovadora para crear, colaborar y conectar con todos los equipos.</p>
         </div>
     </div>
@@ -192,7 +195,7 @@
 </div>
 
 
-<div class="uk-card uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid style="padding-top:60px" uk-scrollspy="cls: uk-animation-slide-top; target: .uk-card-media-left; delay: 1500; repeat: true">
+<div class="uk-card uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid style="padding-top:60px" uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card-media-left; delay: 1500; repeat: true">
     <div class="uk-card-media-left uk-cover-container">
         <iframe style="border-radius:12px" width="600" height="500" src="https://www.youtube-nocookie.com/embed/egSfiBQFFY4?rel=0&end=59&controls=0&loop=1&showinfo=0&modestbranding=1&autoplay=1&mute=1" 
           title="Google WorkSpace" frameborder="0"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen uk-responsive uk-video="automute: true autoplay:inview"></iframe>
@@ -283,9 +286,7 @@
     <div class="uk-card-header">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
             <div class="uk-width-expand uk-text-center">
-                 <a class="uk-logo sanwiselogo" href="" style="padding-bottom:10px; font-size:4vh; font-weight:bold"><i class="fas fa-brain"></i> sanwise
-                  
-                </a>
+                 <img class="uk-navbar-item uk-logo uk-navbar-toggle uk-text-center" src="/static/img/sanwisedark.png" style="color:black; width:20%; height:auto; margin-left:auto; margin-right:auto; filter: brightness(0.9) invert(.7) sepia(.0) hue-rotate(300deg) saturate(200%);">
                
             </div>
            

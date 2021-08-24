@@ -32,3 +32,12 @@ background: linear-gradient(to right,   #05ce45   0%,  #0011dc,     #dc0a00 100%
  ::placeholder { /* Most modern browsers support this now. */
     color:    #566573 !important; 
  }
+
+ .typed-cursor {
+    color:#ffffff;
+    font-size:4vw;
+}
+
+.typed{
+   white-space: pre;
+}
