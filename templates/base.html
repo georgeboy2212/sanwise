@@ -10,6 +10,7 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
       <title>{% block title %} {% endblock %}</title>
   </head>
   <body>
@@ -96,7 +97,7 @@
 
 <footer class="uk-block uk-block-secondary" id="footer" style="background-color:#f8f8f8;">
     <div class="uk-container uk-container-center uk-text-center" style="">
-      <img class="uk-navbar-item uk-logo uk-navbar-toggle uk-text-center" src="/static/img/sanwisedark.png" style="color:black; width:20%; height:auto; margin-left:auto; margin-right:auto; filter: brightness(0.9) invert(.7) sepia(.0) hue-rotate(300deg) saturate(200%);">
+      <img class="uk-navbar-item uk-logo uk-navbar-toggle uk-text-center" src="/static/img/sanwisedark.png" style="color:black; width:150px; height:auto; margin-left:auto; margin-right:auto; filter: brightness(0.9) invert(.7) sepia(.0) hue-rotate(300deg) saturate(200%);">
       <ul class="uk-subnav uk-subnav-line uk-flex-center" style="background-color:#f8f8f8;">
         <li><a class="uk-text-capitalize" href="/dashboards" style="color:#566573;">Dashboards</a></li>
         <li><a class="uk-text-capitalize" href="/trainings" style="color:#566573;">Trainings</a></li>
@@ -111,7 +112,7 @@
     <div class="uk-offcanvas-bar" style="background-color: #f7f9f9">
         <button class="uk-offcanvas-close" type="button" uk-close style="color:black"></button>
         <ul class="uk-nav">
-               <img class="uk-navbar-item uk-logo uk-navbar-toggle" src="/static/img/sanwisedark.png" style="padding:0; color:black; width:70%; height:auto; filter: brightness(0.9) invert(.7) sepia(.0) hue-rotate(300deg) saturate(200%);">
+               <img class="uk-navbar-item uk-logo uk-navbar-toggle" src="/static/img/sanwisedark.png" style="padding:0; color:black; width:150px; height:auto; filter: brightness(0.9) invert(.7) sepia(.0) hue-rotate(300deg) saturate(200%);">
             <li><span class="uk-text-capitalize" style="color:#17202a ; font-family: 'Open Sans', sans-serif;  font-size:1.6vh; margin-bottom:15px; font-weight:bold" class="uk-text-default" href="#">Servicios</span></li>
               <hr style="border-color:#d5d8dc;" class="uk-margin-small">
             <li><a class="uk-text-capitalize" style="color:#17202a ; font-family: 'Open Sans', sans-serif;  font-size:1.8vh" class="uk-text-default" href="#"><i style="color:#17202a ; font-size:1.8vh; padding-right:5px;" class="fas fa-chart-line"></i> Dashboards</a></li>

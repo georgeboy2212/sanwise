@@ -41,3 +41,9 @@ background: linear-gradient(to right,   #05ce45   0%,  #0011dc,     #dc0a00 100%
 .typed{
    white-space: pre;
 }
+
+.caja{
+   width:80%;
+   height:40%;
+   background: linear-gradient(40deg, transparent 70%, #ff5252 10%,  #ff5252 100%, transparent 0%);
+}
