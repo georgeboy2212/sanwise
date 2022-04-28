@@ -800,7 +800,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @property {array} strings strings to be typed
 	   * @property {string} stringsElement ID of element containing string children
 	   */
-	  strings: ['Libera el poder de tus datos', 'Eleva tu productividad', 'Reduce tiempos y costos', 'Acelera y cumple tus objetivos'],
+	  strings: ['Bienvenidos a Sanwise','Libera el poder de tus datos', 'Eleva tu productividad', 'Reduce tiempos y costos', 'Acelera y cumple tus objetivos de negocio', 'El escrutinio sabio de tus datos'],
 	  stringsElement: null,
 	
 	  /**

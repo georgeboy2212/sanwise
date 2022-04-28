@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- uikit CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/css/uikit.min.css" />
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+      <title></title>
+  </head>
+
+  {% extends 'base2.html' %}
+  <body class="bodyprofile" style="background-color:#000 !important;">
+{% block content %}
+  
+
+
+   
+    {% if current_user.role == True  %}
+
+    <div class="uk-card uk-card-default uk-card-body" style="width:93%; margin-top:60px; margin-left:auto; margin-right:auto; border-radius:18px;">
+      <div class="" style="">
+          <div class="uk-text-center" style="">
+              <h3 style="font-family:'Monserrat', sans-serif; font-weight:bold; font-size:4.0vw">
+                <i class="far fa-check-circle" style="color:#1734c3;"></i> Administración de Clientes</h3>
+              <p style="font-family:'Monserrat', sans-serif; font-weight:bold; font-size:2.5vw;">
+                  Bienvenido(a), {{nombres}}
+              </p>
+              
+          </div>
+      </div>
+      <div class="uk-section-small">
+          <div class="uk-container uk-container-large">
+              <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl">
+                  <div>
+                      <div class="uk-card uk-card-default uk-card-body">
+                          <span class="statistics-text">Nuevos Registros</span><br />
+                          <span class="statistics-number">
+                              14.164
+                              <span class="uk-label uk-label-success">
+                                  8% <span uk-icon="chevron-up"></span>
+                              </span>
+                          </span>
+                      </div>
+                  </div>
+                  <div>
+                      <div class="uk-card uk-card-default uk-card-body">
+                          <span class="statistics-text">Trafico del sitio web</span><br />
+                          <span class="statistics-number">
+                              123.238
+                              <span class="uk-label uk-label-danger">
+                                  13% <span uk-icon="chevron-down"></span>
+                              </span>
+                          </span>
+                      </div>
+                  </div>
+                  <div>
+                      <div class="uk-card uk-card-default uk-card-body">
+                          <span class="statistics-text">Total Facturas</span><br />
+                          <span class="statistics-number">
+                              2.316
+                              <span class="uk-label uk-label-success">
+                                  37% <span uk-icon="chevron-up"></span>
+                              </span>
+                          </span>
+                      </div>
+                  </div>
+                  <div>
+                      <div class="uk-card uk-card-default uk-card-body">
+                          <span class="statistics-text">Total Ingresos</span><br />
+                          <span class="statistics-number">
+                              $6.384
+                              <span class="uk-label uk-label-success">
+                                  26% <span uk-icon="chevron-up"></span>
+                              </span>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+            <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-2@l">
+              <div>
+                <div class="uk-card uk-card-default">
+                  <div class="uk-card-header">
+                    Trafico web
+                  </div>
+                  <div class="uk-card-body">
+                    <canvas id="chart1"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="uk-card uk-card-default">
+                  <div class="uk-card-header">
+                    Trafico web
+                  </div>
+                  <div class="uk-card-body">
+                    <canvas id="chart2"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+     
+      
+     
+
+    {% endif %}
+
+     
+
+    
+      {% endblock %}
+  </body>
+
+     <!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+</html>

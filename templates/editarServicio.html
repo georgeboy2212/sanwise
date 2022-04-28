@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" style="">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- uikit CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/css/uikit.min.css" />
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+      <title></title>
+  </head>
+  {% extends 'base2.html' %}
+  <body>
+
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+{% if messages %}
+{% for category, message in messages %}
+<div class="uk-alert-{{category}} uk-text-center"  uk-alert style="width:auto; margin:0; padding:15px; margin-left:30px; margin-right:30px; border-radius:15px; background:transparent; margin-top:10px;" uk-animation="True; duration:3000">
+  <i class="far fa-check-circle"></i> {{ message }}
+    <a class="uk-alert-close" uk-close style="margin-left:10px; color:#000;"></a>
+   
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+
+
+<div class="uk-position-center uk-card uk-card-default uk-card-primary uk-width-1-1" style="margin-top:60px; border-radius:18px; padding:40px; margin-left:auto; margin-right:auto;">
+<h2 class="uk-text-center" style="padding-top:50px; font-family:Montserrat, sans-serif; font-weight:bold;"><i class="fas fa-exclamation-circle" style="color: #fe0051;"></i> Estás seguro que deseas editar este Servicio?</h2>
+<p class="uk-text-center" style="font-family:Montserrat, sans-serif;">Ingresa los datos del servicio que deseas editar</p>
+
+<form action="{{ url_for('editarservicio', id=id)}}" method = 'post' class="uk-width-1-1 uk-grid-small uk-text-center" uk-grid style="margin-left:auto; margin-right:auto;">
+  
+  
+  
+  <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="padding-left:0px; padding-right:0px;  font-family:Montserrat, sans-serif; margin-left:auto; margin-right:auto;">
+    <input class="uk-input" type='text' name="nombre_servicio" value="{{editarServicio.nombre_servicio}}">
+  </div>
+   
+    
+   <!--- <select class="uk-select"  type="checkbox" name="rol" placeholder="Cambiar a Rol de Admin">
+      <option>True</option>
+      <option>False</option>
+      
+  </select>
+  -->
+
+  <div class="uk-width-1-1 uk-margin uk-text-center" style="margin-top:20px;">
+    <a class="uk-button uk-button-default" href="/lista_de_servicios">Volver</a>
+    <input class="uk-text-center uk-button uk-button-primary" type='submit', value='Editar'>
+
+</div>
+
+
+</form>
+</div>
+ 
+
+{% endblock %}
+</body>
+
+   <!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+</html>

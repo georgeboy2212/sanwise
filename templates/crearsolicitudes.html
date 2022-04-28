@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" style="">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- uikit CSS -->
+    
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <script src="https://kit.fontawesome.com/9c660f0063.js" crossorigin="anonymous"></script>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+      <title></title>
+  </head>
+  {% extends 'base2.html' %}
+  <body>
+{% block content %}
+
+<div>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="uk-alert-{{category}} uk-text-center"  uk-alert style="width:auto; margin:0; padding:15px; margin-left:30px; margin-right:30px; border-radius:15px; background:transparent; margin-top:10px;" uk-animation="True; duration:3000">
+              <i class="far fa-check-circle"></i> {{ message }}
+                <a class="uk-alert-close" uk-close style="margin-left:10px; color:#000;"></a>
+               
+      
+            
+                
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+     </div>
+           
+
+      <div class="uk-card uk-card-body" style="width:90%; margin-top:60px; margin-left:auto; margin-right:auto; margin-bottom:0px; border-radius:18px; padding:40px;">
+        
+            <form action="{{ url_for('crearsolicitud', id=id) }}" method="POST" class="uk-grid-small uk-width-1-1" uk-grid style="padding:0; margin-left:auto; margin-right:auto;">
+              
+              
+           
+          </div>
+
+          
+
+          <div class="uk-card uk-card-default uk-width-1-2@m" style="width:80%; margin-left:auto; margin-right:auto; border-radius:20px; background-color: #21618c;">
+            <h3 class=" uk-card-title uk-margin-remove-bottom uk-text-left" style="padding-top:40px; margin-left:30px; font-family:'Monserrat', sans-serif; font-weight:bold; font-size:25px; color:#ffffff;"><i class="fa-solid fa-circle-plus fa-bounce"></i> Crear Solicitud</h3>
+            
+            <div class="uk-card-body">
+              <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+                <div>
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-body" style="font-family:'Monserrat', sans-serif; color:#ffffff; border-radius:18px; background-color: #2874a6;">
+                      <div>
+                        <i class="fa-solid fa-address-card fa-bounce" style="font-size:30px"></i> 
+                      </div>
+                      <p style="font-weight:bold; font-family:'Monserrat', sans-serif; color:#ffffff;  font-size:20px;">Contacto Cliente</p>
+                      <p style="font-family:'Monserrat', sans-serif;  color:#ffffff;">{{ client.nombres }} {{ client.apellidos }}</p>
+                    </div>
+                    
+                </div>
+                <div>
+                  
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-body" style="font-family:'Monserrat', sans-serif; color:#ffffff; border-radius:18px; background-color: #2874a6;">
+                      <div>
+                        <i class="fa-solid fa-envelope fa-bounce" style="font-size:30px"></i>
+    
+                      </div>
+                      <p style="font-weight:bold; font-family:'Monserrat', sans-serif; color:#ffffff;  font-size:20px;">Correo</p>
+                      <p style="font-family:'Monserrat', sans-serif;  color:#ffffff;">{{ client.correo }}</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-body" style="font-family:'Monserrat', sans-serif; color:#ffffff; border-radius:18px; background-color: #2874a6;">
+                      <div>
+                        <i class="fa-solid fa-building fa-bounce" style="font-size:30px"></i>
+        
+                      </div>
+                      <p style="font-weight:bold; font-family:'Monserrat', sans-serif; color:#ffffff;  font-size:20px;">Empresa</p>
+                      <p style="font-family:'Monserrat', sans-serif;  color:#ffffff;">{{client.empresa}}</p>
+
+                    </div>
+                </div>
+               
+            </div>
+
+
+
+
+            <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+            
+            <div>
+              <div class="uk-card-default uk-card-hover uk-card-body" style="font-family:'Monserrat', sans-serif; color:#ffffff; border-radius:18px; background-color: #2874a6;"><p style="font-weight:bold; font-family:'Monserrat', sans-serif; color:#ffffff;">{{ form.asesore.label(class="uk-form-label", style="font-weight:bold; font-family:'Monserrat', sans-serif; color:#ffffff; font-size:20px;") }}</p>
+                <p style="font-family:'Monserrat', sans-serif;  color:#ffffff;">{{ form.asesore(class="uk-select", style="margin-top:8px; border-radius:18px;") }}</p>
+                {% for error in form.asesore.errors%}
+                {{error}}
+                {%endfor%}
+
+              </div>
+          </div>
+
+          <div>
+            <div class="uk-card uk-card-default uk-card-hover uk-card-body" style="font-family:'Monserrat', sans-serif; color:#ffffff; border-radius:18px; background-color: #2874a6;">
+             
+              <p style="font-weight:bold; font-family:'Monserrat', sans-serif; color:#ffffff;  font-size:25px;">{{ form.servicio_campo.label(class="uk-form-label", style="font-weight:bold; font-family:'Monserrat', sans-serif; color:#ffffff; font-size:20px;") }}</p>
+              <p style="font-family:'Monserrat', sans-serif;  color:#ffffff;">{{ form.servicio_campo(class="uk-select", style="margin-top:8px; border-radius:18px;") }}</p>
+
+            </div>
+        </div>
+
+        <div class="uk-width-1-1@s uk-card uk-card-body uk-text-center" style="margin-top:30px; padding:0; font-family:Monserrat, sans-serif; margin-left:auto; margin-right:auto;">
+          {{ form.submit(class="uk-button uk-button-default uk-text-center textbutton button_slide slide_right", style="border-radius:18px; margin-right:10px;") }} <a class="uk-button-default uk-button textbutton button_slide slide_right" href="/homecrm" style="border-radius:18px;">Volver a Home</a>
+         
+         </div>
+       </div>
+
+       </form>
+
+       
+         
+        </div>
+             
+            
+                 
+            
+              
+            
+                
+
+           
+                
+             
+          
+            
+            
+        </div>
+
+        
+
+        
+       
+
+
+   
+    
+            
+           
+        
+      
+   
+        
+   
+
+{% endblock %}
+</body>
+
+   <!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+</html>

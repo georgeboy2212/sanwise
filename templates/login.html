@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" style="">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- uikit CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/css/uikit.min.css" />
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+      <title></title>
+  </head>
+  <body>
+{% block content %}
+  
+<div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-height-viewport" uk-grid style="margin-bottom:0px; margin-left:auto; margin-right:auto" uk-scrollspy="target: .uk-card-media-left; cls: uk-animation-fade; delay: 200; repeat: true">
+    <div class="uk-card-media-left uk-cover-container">
+         <video uk-cover autoplay loop muted>
+        <source src="https://drive.google.com/uc?export=download&id=1tJOzElHocts81WCdLuot38uz3XkqSQge" type="video/mp4">
+    </video>
+        <canvas width="600" height="400"></canvas>
+    </div>
+    <div>
+    <div class="uk-card-body uk-width-1-1" uk-scrollspy="target: .uk-card; cls: uk-animation-slide-right; delay: 200; repeat: true" style="padding:0;">
+          
+    <div class="uk-card uk-width-1-1@m">
+    <div class="uk-text-center" style="margin-left:auto; margin-right:auto;">
+        <div class="uk-grid-small uk-flex-middle uk-text-center" uk-grid>
+            <div class="uk-width-1-1">
+            
+                <img class="uk-border-circle" width="150" height="auto" src="static/img/sanwiselogo1.png">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+
+                {% if messages %}
+                {% for category, message in messages %}
+                <div class="uk-alert-{{category}} uk-text-left"  uk-alert style="width:auto; margin:0; padding:15px; margin-left:30px; margin-right:30px; border-radius:15px; background:transparent; margin-top:10px;" uk-animation="True; duration:3000">
+                    {{ message }}
+                    <a class="uk-alert-close" uk-close style="margin-left:10px; color:#000;"></a>
+                   
+    
+                
+                    
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+            
+        </div>
+    </div>
+    <div class="uk-card-body">
+        
+
+
+        <form action="{{ url_for('login')}}" method="POST" class="uk-width-1-1 uk-float-center" uk-grid style="width:100%; padding:0; margin-left:0px; margin-right:0px;">
+        <div style="margin-left:auto; margin-right:auto">
+           
+        <h3 class="uk-card-title uk-margin-remove-bottom uk-text-center" style="font-family: 'Audiowide', cursive;">Iniciar Sesión</h3>
+        </div>
+         {{ form.hidden_tag() }}
+
+
+     <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="width:100%; margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif;">
+          {{ form.correo.label(class="uk-form-label") }}
+     {{ form.correo(class="uk-input") }}
+     {% for error in form.correo.errors%}
+     {{error}}
+     {%endfor%}
+     </div>
+      
+     <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="margin-top:5px !important; font-family:Montserrat, sans-serif;">
+     {{ form.password.label (class="uk-form-label") }}
+     {{ form.password(class="uk-input") }}
+     {% for error in form.password.errors%}
+     {{error}}
+     {%endfor%}
+     
+     </div>
+     <div style="width:100%; margin-top:0; padding-top:0;" uk-scrollspy="target: .pi; cls: uk-animation-slide-right; delay: 200; repeat: true">
+     <p class="pi"><a class="underline" href="/registro" style="color:#000; font-family:Montserrat, sans-serif; font-size:12px;">¿No tienes una cuenta? Regístrate aquí</a></p>
+     </div>
+     <div style="margin-top:5px; padding-top:0;" uk-scrollspy="target: .pi; cls: uk-animation-slide-right; delay: 200; repeat: true">
+        <p class="pi"><a class="underline" href="/olvidopassword" style="color:#000; font-family:Montserrat, sans-serif; font-size:12px;">¿Olvidaste tu contraseña?</a></p>
+     </div>
+    
+       <div class="uk-width-1-1@s uk-card uk-card-body uk-text-center" style="padding:0; font-family:Montserrat, sans-serif;">
+      {{ form.submit(class="uk-button uk-button-secondary uk-text-center textbutton button_slide slide_right", style="border-radius:18px;") }}
+      </div>
+</div>
+</div>
+</div>
+</div>
+
+   
+
+        
+        </form>
+    </div>
+    
+      {% endblock %}
+  </body>
+
+     <!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+</html>

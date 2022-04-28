@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" style="">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- uikit CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/css/uikit.min.css" />
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+      <title></title>
+  </head>
+  
+  <body>
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+{% if messages %}
+{% for category, message in messages %}
+<div class="uk-alert-{{category}} uk-text-left"  uk-alert style="width:auto; margin:0; padding:15px; margin-left:30px; margin-right:30px; border-radius:15px;">
+    {{ message }}
+    <a class="uk-alert-close" uk-close style="margin-left:10px; color:#000;"></a>
+   
+
+
+    
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="uk-container uk-vertical-align" style="max-width:100%; width:100%; padding:0; margin:0;">
+
+  <div class="uk-width-1-1@m uk-vertical-align">
+  <div class="uk-cover-container uk-vertical-align" style="height:100vh;">
+    <video uk-cover autoplay loop muted>
+        <source src="https://drive.google.com/uc?export=download&id=1ZAG7oXfQkwVpZKAQE6aV40yEe75eCwH1" type="video/mp4">
+    </video>
+    <div class="uk-position-absolute uk-position-center" uk-scrollspy="target: .uki; cls: uk-animation-fade; delay: 300; repeat: true">
+      <h3 class="uki uk-text-center uk-position-relative uk-position-center" style="width:100%; font-size:6vw; color:#ffffff; margin:0; font-family: 'Audiowide', cursive; font-weight:bold;">CRM sanwise</h3>
+      
+      </div>
+    
+      <div class="uk-position-absolute uk-position-center" uk-scrollspy="target: .uki; cls: uk-animation-fade; delay: 300; repeat: true" style="margin-top:20px;">
+        <h3 class="uki uk-text-center uk-position-relative uk-position-center" style="width:100%; font-size:2.5vw; color:#ffffff; margin:0; font-family: 'Monserrat', sans-serif; font-weight:bold;">Bienvenidos al módulo de CRM</h3>
+        
+        </div>
+      <div class="uki uk-text-center uk-position-center" style="margin-top:50px; margin-left:auto; margin-right:auto;" uk-scrollspy="target: .uki; cls: uk-animation-fade; delay: 300; repeat: true">
+          <a class="uk-button uk-button-default" style="border-radius:18px; margin-top:0px; margin-left:15px; color:#ffffff; font-family: 'Montserrat', sans-serif;" href="/login"> Ingresar</a>   
+      </div>
+  </div>
+</div>
+    </div>
+  
+      {% endblock %}
+  </body>
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+</html>

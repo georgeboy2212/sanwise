@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" style="font-family:Audiowide; background-color:#fafafa;">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- uikit CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/css/uikit.min.css" />
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+      <title></title>
+  </head>
+  
+  <body>
+{% block content %}
+
+
+<div class="uk-cover-container" style="height:100vh">
+  
+  <video src="https://drive.google.com/uc?export=download&id=1UzG-qGXAKWSCx14eopZPX38tiFMZRk3C" autoplay loop muted playsinline uk-cover></video>
+</div>
+
+<div class="uk-position-absolute uk-position-top-center" style="margin-top:170px;">
+  <h1 class="uk-text-center uk-position-relative" style="width:100%; padding-top:0px; padding-left:0px; font-size:6vw; color:#ffffff; margin:0; font-family: 'Audiowide', cursive; font-weight:bold;">Bienvenido</h1>
+  </div>
+
+<div class="uk-text-center uk-position-center" style="margin-top:70px; margin-left:auto; margin-right:auto;">
+      <p class="uk-text-center uk-position-center uk-position-relative uk-vertical" style="margin-left:auto; margin-right:auto; width:60%; padding-top:0px; padding-left:0px; font-size:2.5vmin; color:#ffffff; margin:0; font-family: 'Montserrat', sans-serif;">Tu cuenta aún no ha sido confirmada. Por favor revisa tu bandeja de entrada (y tu carpeta de spam) Un correo fue enviado con el link de confirmación.</p>
+      <p style="color:#ffffff; font-size:2.6vmin; color:#ffffff; margin:0; font-family: 'Montserrat', sans-serif;">No recibiste el correo?</p> 
+      <a class="uk-button uk-button-primary" style="margin-top:30px; margin-left:15px; color:#ffffff; font-family: 'Montserrat', sans-serif;" href="{{ url_for('reenviar_Confirmacion')}}">Reenviar Correo</a>
+      <a class="uk-button uk-button-primary" style="margin-top:30px; margin-left:15px; color:#ffffff; font-family: 'Montserrat', sans-serif;" href="/login"> Iniciar Sesión</a>  
+  </div>
+  
+  
+ 
+
+  {% endblock %}
+  </body>
+
+
+
+     <!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+</html>

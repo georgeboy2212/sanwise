@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+<script src="{{url_for('static', filename='js/typed.js')}}"></script>
+    <title>sanwise</title>
+<style>
+
+    .input-icons i {
+        position: absolute;
+    }
+
+    .input-icons {
+        width: 100%;
+        margin-bottom: 0px;
+    }
+
+    .icon {
+        padding: 0px;
+        color: green;
+        text-align: center;
+    }
+
+    .input-field {
+        width: auto;
+        padding:0px;
+        text-align: center;
+    }
+
+</style>
+</head>
+
+
+<body>
+   {% block content %}
+ 
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="autoplay: true; autoplay-interval: 6000; velocity: 0.8; easing: linear; pause-on-hover:true; draggable: false;" style="padding:10px; top:0; margin-left:auto; margin-right:auto; border-radius:0px; background-color:#000;" uk-scrollspy="cls: target: ; delay: 500; repeat: false">
+
+    <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-1@m" style="background-color:#000;">
+        <li>
+            <img src="" alt="" style="">
+            <div class="uk-position-center uk-panel uk-text-center uk-flex-middle" style="background-color:#000;">
+            <h3 style="color:#ffffff; font-family: 'Roboto', sans-serif; font-size:2.0vmin; font-weight:500; text-shadow: 1px 1px 1px black">
+            <a href="#" style="color:#ffffff; font-family: 'Roboto', sans-serif; font-size:2.0vmin; font-weight:500; text-shadow: 1px 1px 1px black">Click Aquí</a> Obtén un 15% de descuento en nuestros productos</h3>
+            
+            </div>
+        </li>
+       
+        <li>
+                <img src="" alt="" style="">
+            <div class="uk-position-center uk-panel uk-text-center">
+            <h3 style="color:#ffffff; font-family: 'Roboto', sans-serif; font-size:2.0vmin; font-weight:500; text-shadow: 1px 1px 1px black">El Sabio Escrutinio de tus Datos</h3>
+            
+            </div>
+           
+        </li>
+        <li>
+                <img src="" alt="" style="">
+            <div class="uk-position-center uk-panel uk-text-center">
+            <h3 style="color:#ffffff; font-family: 'Roboto', sans-serif; font-size:2.0vmin; font-weight:500; text-shadow: 1px 1px 1px black">Libera el poder de la colaboración con Google WorkSpace</h3>
+            </div>
+            
+        </li>
+        <li>
+            <img src="" alt="" style="">
+            <div class="uk-position-center uk-panel uk-text-center">
+            <h3 style="color:#ffffff; font-family: 'Roboto', sans-serif; font-size:2.0vmin; font-weight:500; text-shadow: 1px 1px 1px black">Bienvenidos a sanwise</h3>
+            </div>
+        </li>
+    </ul>
+
+    
+
+</div>
+
+
+
+
+
+
+
+<div class="uk-width-xlarge uk-width-1-1@s uk-width-1-1@m uk-width-1-1@l uk-container-center" style="padding-top:15px; padding-bottom:15px; margin-left:auto: margin-right:auto; background-color: #ffffff">
+<div style="margin-left:auto: margin-right:auto;" class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="autoplay: true; autoplay-interval: 0; velocity: 0.03; easing: linear; pause-on-hover: false; draggable: false;">
+
+    <ul class="uk-slider-items uk-child-width-1-3 uk-child-width-1-3@m">
+        <li>
+            <div class="uk-panel uk-text-center" style="width:auto">
+                <img data-src="static/img/gmail.PNG" alt="Gmail"  style="padding-left:15px; padding-right:15px; background-repeat:no-repeat; background-size:cover;  object-fit: cover; margin-left:auto: margin-right:auto" uk-img>
+                <div class="uk-position-center uk-panel"><h1></h1></div>
+            </div>
+        </li>
+        <li>
+            <div class="uk-panel uk-text-center uk-position-center" style="width:auto">
+                <img data-src="static/img/calendar.PNG" alt="" style="padding-left:15px; padding-right:15px; background-repeat:no-repeat; background-size:cover;  object-fit:cover; margin-left:auto: margin-right:auto;"  uk-img>
+                <div class="uk-position-center uk-panel"><h1></h1></div>
+            </div>
+        </li>
+        <li>
+            <div class="uk-panel uk-text-center uk-position-center" style="width:auto">
+                <img data-src="static/img/drive.PNG" alt=""  style="padding-left:auto; padding-right:auto; width:80%; background-repeat:no-repeat; background-size:cover; object-fit:cover; margin-left:auto: margin-right:auto;" uk-img>
+                <div class="uk-position-center uk-panel"><h1></h1></div>
+            </div>
+            
+        </li>
+        <li>
+            <div class="uk-panel uk-text-center uk-position-center" style="width:auto">
+                <img data-src="static/img/rectangles.PNG" alt="" style="padding-left:15px; padding-right:15px; width:80%; background-repeat:no-repeat; background-size:cover; object-fit: cover; margin-left:auto: margin-right:auto"  uk-img>
+                <div class="uk-position-center uk-panel"><h1></h1></div>
+            </div>
+
+        </li>
+
+        <li style="width:80px">
+            <div class="uk-panel uk-text-center uk-position-center" style="width:auto">
+                <img class="uk-responsive-height" data-src="static/img/meet.PNG" alt="" style="width:40%; padding-left:15px; padding-right:15px; width:80%; background-repeat:no-repeat; background-size:cover; object-fit: cover; margin-left:auto: margin-right:auto"  uk-img>
+                <div class="uk-position-center uk-panel"><h1></h1></div>
+            </div>
+
+        </li>
+
+        <li>
+            <div class="uk-panel uk-text-center" style="width:auto">
+                <img data-src="static/img/gws.PNG" alt="Google WorkSpace"  style="padding-left:15px; padding-right:15px; background-repeat:no-repeat; background-size:cover;  object-fit: cover; margin-left:auto: margin-right:auto" uk-img uk-responsive>
+                <div class="uk-position-center uk-panel"><h1></h1></div>
+            </div>
+        </li>
+       
+    </ul>
+
+    
+
+</div></div>
+
+
+<!-- Generated by https://smooth.ie/blogs/news/svg-wavey-transitions-between-sections -->
+
+<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-3.11,109.03 C150.00,150.00 349.20,-50.00 512.69,166.27 L48.81,168.25 L0.00,150.00 Z" style="stroke: none; fill: #08f;"></path></svg>
+</div>
+
+
+
+
+    <ul class="uk-width-1-1@s uk-width-1-1@m uk-width-1-1@l" uk-accordion="collapsible:false" style="background-color:#08f; margin:0;">
+   
+    <li>
+        <a class="uk-accordion-title uk-text-center uk-icon-chevron-down" style="background-color:#08f; color:#ffffff; padding:30px; font-family:'Open Sans', sans-serif;"><h3 style="background-color:#08f; color:#ffffff; font-family:'Open Sans', sans-serif;">Transforma a tu organización ahora!</h3></a>
+        <div class="uk-accordion-content">
+            <h3 class="uk-text-center" style="font-family:'Open Sans', sans-serif; color:#ffffff; margin-left:30px; margin-right:30px;">Déjanos tus datos, nos pondremos en contacto contigo en breve</h3>
+            <div class="uk-child-width-1-1@s uk-light" uk-grid>
+                 {% with messages = get_flashed_messages() %}
+                {% if messages %}
+
+              <h3 class="uk-h1 uk-card-title uk-text-center" style="width:100%; padding-left:0px; color:#ffffff; font-family: 'Open Sans', sans-serif; font-size:6vmin; font-weight:900; margin-top:0">Gracias por elegirnos!</h3>
+             <ul class=flashes style="padding-left:0;">
+            
+           </ul>
+           
+            
+                {% for message in messages %}
+                <div class="uk-alert-success uk-text-center" uk-alert style="width:auto; margin:0; padding:0; margin-left:auto; margin-right:auto; border-radius:15px; border:1px solid #ffffff !important;">
+                   <a class="uk-alert-close" uk-close style="color:#ffffff;"></a>
+                   <span class="uk-text-center" style="text-decoration:none; border-radius:15px"><p style="width:auto; margin:0; padding:15px; font-family: 'Open Sans', sans-serif; font-size:3.3vmin; color:#ffffff;"><i class="far fa-check-circle" style="color:#ffffff;"></i> Registro Exitoso! </p></span>
+                </div>
+                <div class="uk-text-center uk-width-1-1" style="margin-top:30px; margin-left:auto; margin-right:auto; margin-bottom:30px;">
+                    <a class="uk-button-secondary uk-button textbutton button_slide slide_right uk-text-center" href="/">Ir a Home</a>
+            </div>
+           
+          {% endfor %}
+          {% else %}   
+         
+    <div>
+        <div class="uk-height-large uk-panel uk-flex uk-flex-center" style="background-color:#08f; height:120vh">
+            <div class="uk-card uk-width-1-2@s uk-width-1-2@m uk-width-1-2@l" style="margin-left:15px; margin-right:15px; background-color:#08f; border-radius:12px; width:90%">
+                
+                        
+
+
+    <div class="uk-card uk-card-body uk-position-center" style="width:100%; margin-top:60px; margin-left:auto; margin-right:auto; margin-bottom:30px; border-radius:18px; padding:40px; color:#000; padding-top:0;">
+        
+       
+
+        <form action="{{ url_for('index') }}" method="POST" class="uk-grid-small uk-width-1-1" uk-grid style="padding:0; margin-left:auto; margin-right:auto; color:#000;">
+          {{ form.hidden_tag() }}
+    
+    <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="width:100%; margin-top:5px">
+            {{ form.servicios.label(class="uk-form-label") }}
+       {{ form.servicios(class="uk-select") }}
+       {% for error in form.servicios.errors%}
+       <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+      {%endfor%}
+       </div>
+
+     <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif; color:#000;">
+          {{ form.nombres.label(class="uk-form-label") }}
+     {{ form.nombres(class="uk-input") }}
+     {% for error in form.nombres.errors%}
+     <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+     {%endfor%}
+     </div>
+
+     <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif">
+        {{ form.apellidos.label(class="uk-form-label") }}
+   {{ form.apellidos(class="uk-input") }}
+   {% for error in form.apellidos.errors%}
+   <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+   {%endfor%}
+   </div>
+
+     <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif">
+          {{ form.correo.label(class="uk-form-label") }}
+     {{ form.correo(class="uk-input") }}
+     {% for error in form.correo.errors%}
+     <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+     {%endfor%}
+     </div>
+      
+     <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="margin-top:5px !important; padding-bottom:0px; font-family:Montserrat, sans-serif">
+     {{ form.empresa.label (class="uk-form-label") }}
+     {{ form.empresa(class="uk-input") }}
+     {% for error in form.empresa.errors%}
+     <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+     {%endfor%}
+     
+     </div>
+
+     <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="margin-top:5px !important; padding-bottom:0px; font-family:Montserrat, sans-serif">
+        {{ form.celular.label (class="uk-form-label") }}
+        {{ form.celular(class="uk-input") }}
+        {% for error in form.celular.errors%}
+        <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+        {%endfor%}
+        
+    </div>
+
+    <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif">
+        {{ form.mensaje.label(class="uk-form-label") }}
+   {{ form.mensaje(class="uk-input") }}
+   {% for error in form.mensaje.errors%}
+   <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+   {%endfor%}
+   </div>
+
+   <div class="uk-card uk-card-body uk-text-center" style="margin-left:auto; margin-right:auto; padding:5px; width:80%; color:#ffffff;">
+    {{ form.checkbox(checked=True, class="uk-checkbox checkbox") }}
+    {{ form.checkbox.label(class="check") }}
+    <a href="#">Política de Privacidad.</a>
+    
+     
+     </div>
+
+    
+
+    
+       <div class="uk-width-1-1@s uk-card uk-card-body uk-text-center" style="margin-top:30px; padding:0; font-family:Monserrat, sans-serif; margin-bottom:100px;">
+        <div class="input-icons uk-text-center" style="margin-left:auto; margin-right:auto;">
+        <i class="far fa-paper-plane iconi uk-text-center" style="margin-left:15px; margin-right:auto; margin-top:11px; color:#ffffff;"></i>
+        {{ form.submit(class="uk-button uk-button-default uk-text-center sendbutton input-field") }}
+        </div>
+      
+      </div>
+</div>
+        </form>
+    </div>
+   
+</div>
+        </div>
+    </div>
+</div>
+    </li>
+    
+</ul>
+
+{% endif %}
+{% endwith %}
+
+{% endblock %}
+
+</body>
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+</html>

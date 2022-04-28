@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet"> 
@@ -10,33 +11,98 @@
 <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 <script src="{{url_for('static', filename='js/typed.js')}}"></script>
     <title>sanwise</title>
+<style>
+
+    .input-icons i {
+        position: absolute;
+    }
+
+    .input-icons {
+        width: 100%;
+        margin-bottom: 0px;
+    }
+
+    .icon {
+        padding: 0px;
+        color: green;
+        text-align: center;
+    }
+
+    .input-field {
+        width: auto;
+        padding:0px;
+        text-align: center;
+    }
+
+</style>
 </head>
 {% extends 'base.html' %}
 
 <body>
    {% block content %}
  
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="autoplay: true; autoplay-interval: 6000; velocity: 0.8; easing: linear; pause-on-hover:true; draggable: false;" style="padding:10px; top:0; margin-left:auto; margin-right:auto; border-radius:0px; background-color:#000;" uk-scrollspy="cls: target: ; delay: 500; repeat: false">
+
+    <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-1@m" style="background-color:#000;">
+        <li>
+            <img src="" alt="" style="">
+            <div class="uk-position-center uk-panel uk-text-center uk-flex-middle" style="background-color:#000;">
+            <h3 style="color:#ffffff; font-family: 'Roboto', sans-serif; font-size:2.0vmin; font-weight:500; text-shadow: 1px 1px 1px black">
+            <a href="#" style="color:#ffffff; font-family: 'Roboto', sans-serif; font-size:2.0vmin; font-weight:500; text-shadow: 1px 1px 1px black">Click Aquí</a> Obtén un 15% de descuento en nuestros productos</h3>
+            
+            </div>
+        </li>
+       
+        <li>
+                <img src="" alt="" style="">
+            <div class="uk-position-center uk-panel uk-text-center">
+            <h3 style="color:#ffffff; font-family: 'Roboto', sans-serif; font-size:2.0vmin; font-weight:500; text-shadow: 1px 1px 1px black">El Sabio Escrutinio de tus Datos</h3>
+            
+            </div>
+           
+        </li>
+        <li>
+                <img src="" alt="" style="">
+            <div class="uk-position-center uk-panel uk-text-center">
+            <h3 style="color:#ffffff; font-family: 'Roboto', sans-serif; font-size:2.0vmin; font-weight:500; text-shadow: 1px 1px 1px black">Libera el poder de la colaboración con Google WorkSpace</h3>
+            </div>
+            
+        </li>
+        <li>
+            <img src="" alt="" style="">
+            <div class="uk-position-center uk-panel uk-text-center">
+            <h3 style="color:#ffffff; font-family: 'Roboto', sans-serif; font-size:2.0vmin; font-weight:500; text-shadow: 1px 1px 1px black">Bienvenidos a sanwise</h3>
+            </div>
+        </li>
+    </ul>
+
+    
+
+</div>
+
+
 
 
 <div class="uk-container uk-vertical-align" style="max-width:100%; width:100%; padding:0; margin:0;">
 
   <div class="uk-width-1-1@m uk-vertical-align">
-  <div class="uk-cover-container uk-vertical-align" style="height:43vw">
+  <div class="uk-cover-container uk-vertical-align" style="height:40vw">
     <video uk-cover autoplay loop muted>
-        <source src="/static/video/Hud.mp4" type="video/mp4">
+        <source src="https://drive.google.com/uc?export=download&id=16K8sqCBB4F6-yrCesvQaJdmjAHhzVrO_" type="video/mp4">
     </video>
+    
 
 
     <div class="uk-text-left" uk-grid style="padding-top:10%">
     <div class="uk-width-1-1">
-        <div class="uk-card uk-card-body uk-vertical-align" style="padding-left:22px">
+        <div class="uk-card uk-card-body uk-vertical-align" style="padding-left:40px">
         <h1 class="uk-text-left uk-position-relative uk-vertical" style="width:100%; padding-top:0px; padding-left:0px; font-size:6vw; color:#ffffff; margin:0; font-family: 'Audiowide', cursive; font-weight:bold;">Sé más productivo</h1>
         </div>
     </div>
     <div id="typed" class="uk-position-cover uk-width-1-1 uk-flex uk-flex-left uk-flex-middle" style="margin-top:50px; padding:0">
         <div class="uk-card uk-card-body" style="padding:0"></div>
 
-         <a class="element uk-text-left uk-width-1-1@s uk-width-1-1@m uk-width-1-1@l uk-vertical-align-middle" style="width:100%; padding-left:25px; width:auto; font-size:3.0vw; color:#ffffff; font-family: 'Audiowide', cursive;"></a>
+         <a class="element uk-text-left uk-width-1-1@s uk-width-1-1@m uk-width-1-1@l uk-vertical-align-middle" style="width:100%; padding-left:40px; width:auto; font-size:3.0vw; color:#ffffff; font-family: 'Audiowide', cursive; text-decoration:none;"></a>
                   </a>
     </div>
 </div>
@@ -60,8 +126,9 @@
 
 <!-- Generated by https://smooth.ie/blogs/news/svg-wavey-transitions-between-sections -->
 
-<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-0.27,3.47 C254.79,152.45 255.36,150.48 501.41,1.48 L502.54,-2.45 L-0.84,-5.42 Z" style="stroke: none; fill: #08f;">
-</path></svg></div>
+<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-1.41,4.43 C150.00,150.00 295.43,22.20 500.27,18.25 L500.00,0.00 L-2.55,-5.43 Z" style="stroke: none; fill: #000;"></path></svg></div>
+
+
 
 
 <div uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card-body; delay: 1500; repeat: true">
@@ -87,7 +154,7 @@
 <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 271.49,-49.98 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill:#ff014a;">
 </path></svg></div>
     
-<div class="uk-card uk-grid-collapse uk-child-width-1-2@s uk-margin uk-cover-background" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card-media; delay: 2200; repeat: true" style="padding-left:0 !important; margin-top:0 !important; margin-bottom:0 !important; background-color:#FFFFFF; padding-left:30px;">
+<div class="uk-card uk-grid-collapse uk-child-width-1-2@s uk-margin uk-cover-background uk-flex-middle" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card-media; delay: 2200; repeat: true" style="padding-left:0 !important; margin-top:0 !important; margin-bottom:0 !important; background-color:#FFFFFF; padding-left:30px;">
    
     <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
      
@@ -98,14 +165,44 @@
         <canvas width="600" height="400" style="border-radius:12px"></canvas>
     </div>
     <div>
-        <div class="uk-card-body" uk-scrollspy="cls: uk-animation-fade; target: .uk-card-title; delay: 1500; repeat: true" style="">
-        
+     <div class="uk-position-relative uk-visible-toggle uk-light uk-text-center" tabindex="-1" uk-slider="autoplay: true; autoplay-interval: 6000; velocity: 0.8; easing: linear; pause-on-hover:true; draggable: false;" style="width:100%; padding:10px; top:0; margin-left:auto; margin-right:auto; border-radius:0px;" uk-scrollspy="cls: target: .uk-slider-items; delay: 500; repeat: true">
 
-            <h3 class="uk-card-title" style="background-color:transparent; color:black; font-family:'Open Sans', sans-serif; font-weight:700; font-size:6vw; position:relative; padding-top:15px; padding-left:15px;">Crea, innova, conecta y colabora</h3>
+    <ul class="uk-slider-items uk-width-1-1 uk-child-width-1-1" style="">
+        <li>
+            <img src="" alt="" style="">
+            <div class="uk-position-center uk-panel uk-text-center text-1">
+            <h3 style="padding:10px; color:#ffffff; font-family: 'Roboto', sans-serif; font-size:7vmin; font-weight:500; border-radius:15px;">Crea</h3>
             
-        </div>
-    </div>
+            </div>
+        </li>
+       
+        <li>
+                <img src="" alt="" style="">
+            <div class="uk-position-center uk-panel uk-text-center text-2">
+            <h3 style="padding:10px; color:#ffffff; font-family: 'Roboto', sans-serif; font-size:7vmin; font-weight:500; border-radius:15px;">Innova</h3>
+            
+            </div>
+           
+        </li>
+        <li>
+                <img src="" alt="" style="">
+            <div class="uk-position-center uk-panel uk-text-center text-3">
+            <h3 style="padding:10px; color:#ffffff; font-family: 'Roboto', sans-serif; font-size:7vmin; font-weight:500; border-radius:15px;">Colabora</h3>
+            </div>
+            
+        </li>
+    </ul>
+
+    
+
 </div>
+<div style="margin-left:auto; margin-right:auto">
+<h3 class="uk-text-center" style="padding-top:30px; color:#000; font-family: 'Roboto', sans-serif; font-size:7vmin; font-weight:500;">Con tu equipo de trabajo, alcancemos metas juntos!</h3>
+</div>
+    </div>
+    
+    </div>
+
 
 <!-- Generated by https://smooth.ie/blogs/news/svg-wavey-transitions-between-sections -->
 
@@ -114,7 +211,7 @@
 
 <!-- Generated by https://smooth.ie/blogs/news/svg-wavey-transitions-between-sections -->
 
-<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.28,-0.48 C128.38,225.48 324.77,57.72 551.06,-15.28 L192.71,-7.39 L-0.27,-0.48 Z" style="stroke: none; fill: #08f;">
+<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.28,-0.48 C128.38,225.48 324.77,57.72 551.06,-15.28 L192.71,-7.39 L-0.27,-0.48 Z" style="stroke: none; fill: #049400;">
 </path></svg></div>
 
 <div class="uk-width-1-1@s uk-width-1-1@m uk-width-1-1@l uk-text-center" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card-body; delay: 1800; repeat: true" style="margin:0; margin-left:auto; margin-right:auto; padding-top:0px">
@@ -213,7 +310,7 @@
  
 <!-- Generated by https://smooth.ie/blogs/news/svg-wavey-transitions-between-sections -->
 
-<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-7.05,-6.41 C157.73,195.88 402.64,61.67 504.22,-3.45 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:#ff014a;"></path></svg>
+<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-7.05,-6.41 C157.73,195.88 402.64,61.67 504.22,-3.45 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:#fff143"></path></svg>
 </div>
 
     </div>
@@ -236,6 +333,19 @@
             <p class="uk-card-title" style="color:#808b96; font-size:3.2vw; font-family:'Open Sans', sans-serif; font-weight:bold">Innovación y flexibilidad para que tu equipo alcance más objetivos</p>
         </div>
     </div>
+</div>
+
+<!-- Generated by https://smooth.ie/blogs/news/svg-wavey-transitions-between-sections -->
+
+<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-7.05,-6.41 C157.73,195.88 402.64,61.67 504.22,-3.45 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:#fff143"></path></svg>
+</div>
+
+    </div>
+</div>
+
+<!-- Generated by https://smooth.ie/blogs/news/svg-wavey-transitions-between-sections -->
+
+<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M249.72,78.45 C250.84,78.45 472.63,251.14 514.39,-73.52 L510.44,-29.11 L-43.73,-13.31 Z" style="stroke: none; fill:#fff143;"></path></svg>
 </div>
 
 
@@ -310,72 +420,146 @@
 </div></div>
 
 
+<!-- Generated by https://smooth.ie/blogs/news/svg-wavey-transitions-between-sections -->
+
+<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-3.11,109.03 C150.00,150.00 349.20,-50.00 512.69,166.27 L48.81,168.25 L0.00,150.00 Z" style="stroke: none; fill: #08f;"></path></svg>
+</div>
 
 
 
 
-
-    <ul class="uk-width-1-1@s uk-width-1-1@m uk-width-1-1@l" uk-accordion style="background-color:#f8f8f8; margin:0">
+    <ul class="uk-width-1-1@s uk-width-1-1@m uk-width-1-1@l" uk-accordion style="background-color:#08f; margin:0;">
    
     <li>
-        <a class="uk-accordion-title uk-text-center" href="#" style="color: #566573; padding:30px; font-family:'Open Sans', sans-serif; font-size:20px;">Transforma a tu organización ahora!</a>
+        <a class="uk-accordion-title uk-text-center uk-icon-chevron-down" style="background-color:#08f; color:#ffffff; padding:30px; font-family:'Open Sans', sans-serif;"><h3 style="background-color:#08f; color:#ffffff; font-family:'Open Sans', sans-serif;">Transforma a tu organización ahora!</h3></a>
         <div class="uk-accordion-content">
+            <h3 class="uk-text-center" style="font-family:'Open Sans', sans-serif; color:#ffffff; margin-left:30px; margin-right:30px;">Déjanos tus datos, nos pondremos en contacto contigo en breve</h3>
             <div class="uk-child-width-1-1@s uk-light" uk-grid>
-    <div>
-        <div class="uk-height-large uk-panel uk-flex uk-flex-center" style="background-color:#f8f8f8; height:120vh">
-            <div class="uk-card uk-width-1-2@s uk-width-1-2@m uk-width-1-2@l" style="margin-left:15px; margin-right:15px; background-color:#f8f8f8; border-radius:12px; width:70%">
-    <div class="uk-card-header">
-        <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-expand uk-text-center">
-                 <img class="uk-navbar-item uk-logo uk-navbar-toggle uk-text-center" src="/static/img/sanwisedark.png" style="color:black; width:150px; height:auto; margin-left:auto; margin-right:auto; filter: brightness(0.9) invert(.7) sepia(.0) hue-rotate(300deg) saturate(200%);">
-               
+                 {% with messages = get_flashed_messages() %}
+                {% if messages %}
+
+              <h3 class="uk-h1 uk-card-title uk-text-center" style="width:100%; padding-left:0px; color:#ffffff; font-family: 'Open Sans', sans-serif; font-size:6vmin; font-weight:900; margin-top:0">Gracias por elegirnos!</h3>
+             <ul class=flashes style="padding-left:0;">
+            
+           </ul>
+           
+            
+                {% for message in messages %}
+                <div class="uk-alert-success uk-text-center" uk-alert style="width:auto; margin:0; padding:0; margin-left:auto; margin-right:auto; border-radius:15px; border:1px solid #ffffff !important;">
+                   <a class="uk-alert-close" uk-close style="color:#ffffff;"></a>
+                   <span class="uk-text-center" style="text-decoration:none; border-radius:15px"><p style="width:auto; margin:0; padding:15px; font-family: 'Open Sans', sans-serif; font-size:3.3vmin; color:#ffffff;"><i class="far fa-check-circle" style="color:#ffffff;"></i> Registro Exitoso! </p></span>
+                </div>
+                <div class="uk-text-center uk-width-1-1" style="margin-top:30px; margin-left:auto; margin-right:auto; margin-bottom:30px;">
+                    <a class="uk-button-secondary uk-button textbutton button_slide slide_right uk-text-center" href="/homecrm">Ir a Home</a>
             </div>
            
-        </div>
-    </div>
+          {% endfor %}
+          {% else %}   
+         
+    <div>
+        <div class="uk-height-large uk-panel uk-flex uk-flex-center" style="background-color:#08f; height:120vh">
+            <div class="uk-card uk-width-1-2@s uk-width-1-2@m uk-width-1-2@l" style="margin-left:15px; margin-right:15px; background-color:#08f; border-radius:12px; width:90%">
+                
+                        
 
-    <div class="uk-card-body" style="background-color:#f8f8f8;">
-<form id="contactform" class="uk-margin-large" style="color:#566573; " action="{{ url_for('index')}}" method="POST">
- <fieldset class="uk-fieldset">
-   
-       
-        <div class="uk-form-controls uk-form-controls-text">
-            <input class="uk-input" type="text" placeholder="Nombres completos" name="nombres_completos" style="padding:15px; color:#566573; border-color:#abb2b9; font-family:'Open Sans', sans-serif; border-radius:12px" required>
-         </div>
-    
-	
+
+    <div class="uk-card uk-card-body uk-position-center" style="width:100%; margin-top:60px; margin-left:auto; margin-right:auto; margin-bottom:30px; border-radius:18px; padding:40px; color:#000; padding-top:0;">
         
-        <div class="uk-form-controls uk-form-controls-text">
-            <input class="uk-input" type="email" placeholder="Email" name="email" style="margin-top:15px; padding:15px; color:#566573; border-color:#abb2b9; border-radius:12px" required>
-        </div>
-  
+       
 
-   
-        <div class="uk-form-controls uk-form-controls-text">
-            <input class="custom uk-input" type="text" name="empresa" placeholder="Empresa" style="margin-top:15px; padding:15px; color:#566573; border-color:#abb2b9; border-radius:12px" required>
-        </div>
+        <form action="{{ url_for('index') }}" method="POST" class="uk-grid-small uk-width-1-1" uk-grid style="padding:0; margin-left:auto; margin-right:auto; color:#000;">
+          {{ form.hidden_tag() }}
+    
+    <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="width:100%; margin-top:5px">
+            {{ form.servicios.label(class="uk-form-label") }}
+       {{ form.servicios(class="uk-select") }}
+       {% for error in form.servicios.errors%}
+       <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+      {%endfor%}
+       </div>
+
+     <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif; color:#000;">
+          {{ form.nombres.label(class="uk-form-label") }}
+     {{ form.nombres(class="uk-input") }}
+     {% for error in form.nombres.errors%}
+     <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+     {%endfor%}
+     </div>
+
+     <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif">
+        {{ form.apellidos.label(class="uk-form-label") }}
+   {{ form.apellidos(class="uk-input") }}
+   {% for error in form.apellidos.errors%}
+   <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+   {%endfor%}
+   </div>
+
+     <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif">
+          {{ form.correo.label(class="uk-form-label") }}
+     {{ form.correo(class="uk-input") }}
+     {% for error in form.correo.errors%}
+     <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+     {%endfor%}
+     </div>
+      
+     <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="margin-top:5px !important; padding-bottom:0px; font-family:Montserrat, sans-serif">
+     {{ form.empresa.label (class="uk-form-label") }}
+     {{ form.empresa(class="uk-input") }}
+     {% for error in form.empresa.errors%}
+     <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+     {%endfor%}
+     
+     </div>
+
+     <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="margin-top:5px !important; padding-bottom:0px; font-family:Montserrat, sans-serif">
+        {{ form.celular.label (class="uk-form-label") }}
+        {{ form.celular(class="uk-input") }}
+        {% for error in form.celular.errors%}
+        <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+        {%endfor%}
+        
+    </div>
+
+    <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif">
+        {{ form.mensaje.label(class="uk-form-label") }}
+   {{ form.mensaje(class="uk-input") }}
+   {% for error in form.mensaje.errors%}
+   <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
+   {%endfor%}
+   </div>
+
+   <div class="uk-card uk-card-body uk-text-center" style="margin-left:auto; margin-right:auto; padding:5px; width:80%; color:#ffffff;">
+    {{ form.checkbox(checked=True, class="uk-checkbox checkbox") }}
+    {{ form.checkbox.label(class="check") }}
+    <a href="#">Política de Privacidad.</a>
+    
+     
+     </div>
+
     
 
-
-        <div class="uk-form-controls uk-form-controls-text">
-            <input class="uk-input" id="form-horizontal-text" name="celular" type="phone" placeholder="Celular" style="margin-top:15px; padding:15px; color:#566573; border-color:#abb2b9; border-radius:12px" required>
-       
-    </div>
-     <div class="uk-card-footer uk-text-center" style="margin-left:auto; margin-right:auto">
-        <button class="uk-text-capitalize uk-button uk-button-primary uk-text-center" type="submit" style="margin-left:auto; margin-right:auto; background-color:#2471a3; color:#fdfefe; border-radius:5px">Enviar</button>
-    </div>
-</fieldset>
-</form>
+    
+       <div class="uk-width-1-1@s uk-card uk-card-body uk-text-center" style="margin-top:30px; padding:0; font-family:Monserrat, sans-serif; margin-bottom:100px;">
+        <div class="input-icons uk-text-center" style="margin-left:auto; margin-right:auto;">
+        <i class="far fa-paper-plane iconi uk-text-center" style="margin-left:15px; margin-right:auto; margin-top:11px; color:#ffffff;"></i>
+        {{ form.submit(class="uk-button uk-button-default uk-text-center sendbutton input-field") }}
+        </div>
+      
+      </div>
+</div>
+        </form>
     </div>
    
 </div>
         </div>
     </div>
 </div>
-        </div>
     </li>
     
 </ul>
+
+{% endif %}
+{% endwith %}
 
 {% endblock %}
 

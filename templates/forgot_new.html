@@ -1,0 +1,67 @@
+
+<!doctype html>
+<html lang="en" style="background-image:url(static/img/olvido.png); background-size:cover;">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- uikit CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/css/uikit.min.css" />
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+      <title></title>
+  </head>
+
+<body>
+{% block content %}
+
+
+
+<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-position-center uk-box-shadow-xlarge" style="margin-left:auto; margin-right:auto; border-radius:15px; padding-top:5px;">
+  <div class="uk-card-header">
+    <h3 class="uk-text-center uk-card-title" style="font-family:Audiowide, cursive; font-weight:bold; color:#000;">Olvidaste tu contraseña?</h3>
+    </div>
+<form class="uk-width-1-1 uk-float-center" role="form" method="post" action="">
+  {{ form.csrf_token }}
+  <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="width:100%; margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif;">
+    {{ form.password.label(class="uk-form-label") }}
+    {{ form.password(class="uk-input") }}
+ 
+      {% if form.password.errors %}
+        {% for error in form.password.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    
+  </div>
+  <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="width:100%; margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif;">
+    {{ form.cpassword.label(class="uk-form-label") }}
+    {{ form.cpassword(class="uk-input") }}
+   
+      {% if form.cpassword.errors %}
+        {% for error in form.cpassword.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="uk-width-1-1@s uk-card uk-card-body uk-text-center" style="padding:0; font-family:Montserrat, sans-serif; margin-top:20px;">
+        {{ form.submit(class="uk-button uk-button-secondary uk-text-center textbutton button_slide slide_right") }}
+        </div>
+  
+</form>
+</div>
+</div>
+
+{% endblock %}
+
+</body>
+</html>
