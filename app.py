@@ -196,19 +196,20 @@ class Asesor(db.Model):
 
    
 
-    def __init__(self, primernombre_asesor, apellido_asesor, correo_asesor):
+    def __init__(self, primernombre_asesor, apellido_asesor, correo_asesor, asesor_client):
         self.primernombre_asesor = primernombre_asesor
         self.apellido_asesor = apellido_asesor
         self.correo_asesor = correo_asesor
+        self.asesor_client = asesor_client
 
 
 class form_solicitudes(FlaskForm):
 
     
-    servicio_campo = SelectField('Seleccione el servicio', choices=[])
+    servicio_campo = SelectField('Selecciona el servicio', choices=[])
 
     
-    asesore = SelectField('Seleccione el asesor', choices=[])
+    asesore = SelectField('Selecciona un asesor', choices=[])
     
     numero_solicitud = IntegerField('Número de Solicitud', validators=[DataRequired(message='Campo Mandatorio'), Length(min=0, max=100000, message="")])
 
@@ -674,12 +675,12 @@ def crearasesor():
             db.session.add(crearasesore)
             db.session.commit()
             flash('El Asesor ha sido creado exitosamente!', 'success')
-            return render_template('crearasesor.html', form=form, clints=clints)
+            return redirect(url_for('listarasesor', form=form, clints=clints, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role))
           
     else:
         abort(401)
 
-    return render_template('crearasesor.html', form=form, role=current_user.role, clints=clints)
+    return render_template('crearasesor.html', form=form, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role, clints=clints)
 
 # eliminar asesor
 
@@ -693,6 +694,7 @@ def eliminarasesor(id):
             db.session.commit()
             message = f"El Asesor ha sido eliminado exitosamente"
             flash(message, 'success')
+            return redirect(url_for('listarasesor', borrarAsesor=borrarAsesor, nombres=current_user.nombres, correo=current_user.correo))
     else:
         abort(401)
 
@@ -867,7 +869,7 @@ def crearcliente():
                 db.session.add(client)
                 db.session.commit()
                 flash('El cliente ha sido creado exitosamente', 'success')
-                return render_template('crearcliente.html', form=form)
+                return redirect(url_for('listarclientes', form=form))
             except InvalidRequestError:
                 db.session.rollback()
                 flash(f"Something went wrong!", "danger")
@@ -905,8 +907,8 @@ def listarcotizacion():
 @login_required
 def listarsolicitud():
     if current_user.role == True:
-        clientes= db.session.query(Solicitud).join(Clientes).all()
-        
+        clientes= db.session.query(Solicitud.id, Solicitud.servicio_campo, Solicitud.asesore, Clientes.nombres, Clientes.apellidos, Clientes.correo, Clientes.empresa).join(Clientes).all()
+      
        
         
         return render_template('listarsolicitudes1.html', clientes=clientes, nombres=current_user.nombres, correo=current_user.correo)
@@ -944,8 +946,9 @@ def crearsolicitud(id):
             print(solicitan)
             db.session.add(solicitan)
             db.session.commit()
-            flash('La solicitud ha sido creado exitosamente', 'success')
-            return render_template('crearsolicitudes.html', client=client, id=id, form=form, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role,)
+            message = f"La solicitud {solicitan.id} ha sido creada exitosamente"
+            flash(message, 'success')
+            return redirect(url_for('listarsolicitud', client=client, id=id, form=form, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role,))
             
     else:
         abort(401)

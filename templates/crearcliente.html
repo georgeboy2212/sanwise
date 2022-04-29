@@ -42,16 +42,29 @@
             {% endif %}
             {% endwith %}
      </div>
-           
 
-      <div class="uk-card uk-card-default uk-card-primary uk-card-body" style="width:90%; margin-top:60px; margin-left:auto; margin-right:auto; margin-bottom:30px; border-radius:18px; padding:top:30px; padding-right:15px; padding-left:15px;">
+     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#5000ca" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,197.3C384,181,480,139,576,117.3C672,96,768,96,864,96C960,96,1056,96,1152,128C1248,160,1344,224,1392,256L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+    </svg>
+
+     <div style="margin-top:30px; margin-left:60px;">
+      <ul class="uk-breadcrumb">
+       <li><a href="/homecrm" class="underline" style="font-family:'Open Sans', sans-serif; color:#000;">Inicio</a></li>
+       <li><a href="/crearcliente" class="underline" style="font-family:'Open Sans', sans-serif; color:#000; font-weight:bold">Crear Cliente</a></li>
+   
+   </ul>
+ </div>
+           
+     <div style="width:100%;">
+      <h1 class="uk-card-title uk-margin-remove-bottom uk-text-left" style="margin-top:50px; margin-left:60px; font-family:'Monserrat', sans-serif; font-weight:bold; font-size:25px;"><i class="fa-solid fa-plus fa-bounce"></i> Crear Cliente</h1>
+      </div>
+
+      <div class="uk-card uk-card-default uk-card-body uk-box-shadow-large" style="width:90%; margin-top:30px; margin-left:auto; margin-right:auto; margin-bottom:30px; border-radius:18px; padding:top:30px; padding-right:15px; padding-left:15px; background-color:#f4f6f6;">
         
             <form action="{{ url_for('crearcliente') }}" method="POST" class="uk-grid-small uk-width-1-1" uk-grid style="padding:0; margin-left:auto; margin-right:auto;">
               {{ form.hidden_tag() }}
             
-            <div style="width:100%;">
-            <h1 class="uk-card-title uk-margin-remove-bottom uk-text-left" style="font-family:'Monserrat', sans-serif; font-weight:bold; font-size:25px;"><i class="fa-solid fa-heart fa-bounce"></i> Crear Cliente</h1>
-            </div>
+          
           
            
             
@@ -102,8 +115,8 @@
 
         
            <div class="uk-width-1-1@s uk-card uk-card-body uk-text-center" style="margin-top:40px; padding:0; font-family:Monserrat, sans-serif;">
-          {{ form.submit(class="uk-button uk-button-default uk-text-center textbutton button_slide slide_right", style="border-radius:18px;") }}
-          <a class="uk-button-default uk-button textbutton button_slide slide_right" href="/homecrm" style="border-radius:18px;">Volver al inicio</a>
+          {{ form.submit(class="uk-button uk-button-secondary uk-text-center textbutton button_slide slide_right", style="border-radius:18px;") }}
+          <a class="uk-button-secondary uk-button textbutton button_slide slide_right" href="/homecrm" style="border-radius:18px;">Volver al inicio</a>
           </div>
     </div>
     
@@ -115,7 +128,9 @@
             </form>
         </div>
       
-   
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#5000ca" fill-opacity="1" d="M0,128L60,117.3C120,107,240,85,360,74.7C480,64,600,64,720,101.3C840,139,960,213,1080,229.3C1200,245,1320,203,1380,181.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
         
    
 

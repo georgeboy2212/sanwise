@@ -68,7 +68,7 @@
 
      <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="width:100%; margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif">
           {{ form.nombres.label(class="uk-form-label") }}
-     {{ form.nombres(class="uk-input") }}
+     {{ form.nombres(class="uk-input", style="border-radius:18px;") }}
      {% for error in form.nombres.errors%}
      {{error}}
      {%endfor%}
@@ -76,7 +76,7 @@
 
      <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="width:100%; margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif">
         {{ form.apellidos.label(class="uk-form-label") }}
-   {{ form.apellidos(class="uk-input") }}
+   {{ form.apellidos(class="uk-input", style="border-radius:18px;") }}
    {% for error in form.apellidos.errors%}
    {{error}}
    {%endfor%}
@@ -84,7 +84,7 @@
 
      <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="width:100%; margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif">
           {{ form.correo.label(class="uk-form-label") }}
-     {{ form.correo(class="uk-input") }}
+     {{ form.correo(class="uk-input", style="border-radius:18px;") }}
      {% for error in form.correo.errors%}
      {{error}}
      {%endfor%}
@@ -92,7 +92,7 @@
       
      <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="margin-top:5px !important; padding-bottom:0px; font-family:Montserrat, sans-serif">
      {{ form.password.label (class="uk-form-label") }}
-     {{ form.password(class="uk-input") }}
+     {{ form.password(class="uk-input", style="border-radius:18px;") }}
      {% for error in form.password.errors%}
      <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
      {%endfor%}
@@ -101,7 +101,7 @@
 
      <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="margin-top:5px !important; padding-bottom:0px; font-family:Montserrat, sans-serif">
         {{ form.cpassword.label (class="uk-form-label") }}
-        {{ form.cpassword(class="uk-input") }}
+        {{ form.cpassword(class="uk-input", style="border-radius:18px;") }}
         {% for error in form.cpassword.errors%}
         <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
         {%endfor%}
@@ -114,7 +114,7 @@
      
     
        <div class="uk-width-1-1@s uk-card uk-card-body uk-text-center" style="padding:0; font-family:Monserrat, sans-serif;">
-      {{ form.submit(class="uk-button uk-button-secondary uk-text-center textbutton button_slide slide_right") }}
+      {{ form.submit(class="uk-button uk-button-secondary uk-text-center textbutton button_slide slide_right", style="border-radius:18px;") }}
       </div>
 </div>
 </div>

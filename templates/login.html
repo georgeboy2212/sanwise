@@ -71,7 +71,7 @@
 
      <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="width:100%; margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif;">
           {{ form.correo.label(class="uk-form-label") }}
-     {{ form.correo(class="uk-input") }}
+     {{ form.correo(class="uk-input", style="border-radius:18px;") }}
      {% for error in form.correo.errors%}
      {{error}}
      {%endfor%}
@@ -79,7 +79,7 @@
       
      <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="margin-top:5px !important; font-family:Montserrat, sans-serif;">
      {{ form.password.label (class="uk-form-label") }}
-     {{ form.password(class="uk-input") }}
+     {{ form.password(class="uk-input", style="border-radius:18px;") }}
      {% for error in form.password.errors%}
      {{error}}
      {%endfor%}

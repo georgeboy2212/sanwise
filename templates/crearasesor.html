@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en" style="">
+<html lang="en" style="background-color:#ffffff;">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <!-- uikit CSS -->
     
-     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <script src="https://kit.fontawesome.com/9c660f0063.js" crossorigin="anonymous"></script>
      <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
@@ -40,47 +40,59 @@
             {% endif %}
             {% endwith %}
      </div>
+
+     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#5000ca" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,197.3C384,181,480,139,576,117.3C672,96,768,96,864,96C960,96,1056,96,1152,128C1248,160,1344,224,1392,256L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+    </svg>
            
 
-      <div class="uk-card uk-card-body" style="width:90%; margin-top:60px; margin-left:auto; margin-right:auto; margin-bottom:0px; border-radius:18px; padding:40px;">
+      <div class="uk-card uk-card-body" style="width:90%; margin-top:0px; margin-left:auto; margin-right:auto; margin-bottom:0px; border-radius:18px; padding-top:0px;">
         
             <form action="{{ url_for('crearasesor') }}" method="POST" class="uk-grid-small uk-width-1-1" uk-grid style="padding:0; margin-left:auto; margin-right:auto;">
               
               {{ form.hidden_tag() }}
            
           </div>
+        
+          <div style="margin-top:0px; margin-left:60px;">
+            <ul class="uk-breadcrumb">
+             <li><a href="/homecrm" class="underline" style="font-family:'Open Sans', sans-serif; color:#000;">Inicio</a></li>
+             <li><a href="/crearasesor" class="underline" style="font-family:'Open Sans', sans-serif; color:#000; font-weight:bold">Crear Asesor</a></li>
+         
+         </ul>
+       </div>
 
-          
+          <h3 class=" uk-card-title uk-margin-remove-bottom uk-text-left" style="margin-top:50px; margin-left:60px; font-family:'Monserrat', sans-serif; font-weight:bold; font-size:25px; padding-bottom:30px;" uk-scrollspy="cls: uk-animation-slide-left; repeat: false"><i class="fa-solid fa-plus fa-bounce"></i> Crear Asesor</h3>
 
-          <div class="uk-card uk-card-primary uk-card-default uk-width-1-2@m uk-card-body" style="width:90%; margin-left:auto; margin-right:auto; border-radius:20px;">
+          <div class="uk-card uk-card-default uk-width-1-2@m uk-card-body uk-box-shadow-large" style="width:90%; margin-bottom:0px; margin-left:auto; margin-right:auto; border-radius:20px;  background-color: #f4f6f6;" uk-scrollspy="cls: uk-animation-slide-left; repeat: false">
         
           
             
               <div class="uk-width-1-1@s uk-text-left">
 
-                <h3 class=" uk-card-title uk-margin-remove-bottom uk-text-left" style="margin-left:0px; font-family:'Monserrat', sans-serif; font-weight:bold; font-size:25px; padding-bottom:15px;"> Crear Asesor</h3>
+                
             
               {{ form.primernombre_asesor.label(class="uk-form-label") }}
-              {{ form.primernombre_asesor(class="uk-input") }}
+              {{ form.primernombre_asesor(class="uk-input", style="border-radius:18px;margin-top:10px;") }}
               {% for error in form.primernombre_asesor.errors%}
               <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
              {%endfor%}
         
               </div>
-              <div class="uk-width-1-1@s uk-text-left">
+              <div class="uk-width-1-1@s uk-text-left" style="margin-top:15px;">
              
               {{ form.apellido_asesor.label(class="uk-form-label") }}
-              {{ form.apellido_asesor(class="uk-input") }}
+              {{ form.apellido_asesor(class="uk-input", style="border-radius:18px;margin-top:10px;") }}
               {% for error in form.apellido_asesor.errors%}
               <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
              {%endfor%} 
              </div>
 
-             <div class="uk-width-1-1@s uk-text-left">
+             <div class="uk-width-1-1@s uk-text-left" style="margin-top:15px;">
              
               
               {{ form.correo_asesor.label(class="uk-form-label") }}
-              {{ form.correo_asesor(class="uk-input") }}
+              {{ form.correo_asesor(class="uk-input", style="border-radius:18px;margin-top:10px;") }}
               {% for error in form.correo_asesor.errors%}
               <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
              {%endfor%} 
@@ -89,32 +101,16 @@
               
             
             <div class="uk-width-1-1@s uk-card uk-card-body uk-text-center" style="margin-top:30px; padding:0; font-family:Monserrat, sans-serif;">
-              {{ form.submit(class="uk-button uk-button-default uk-text-center", style="border-radius:18px;") }}
-            
+              {{ form.submit(class="uk-button uk-button-secondary uk-text-center button_slide slide_right", style="border-radius:18px; margin-top:15px;") }}
+              <a class="uk-button-secondary uk-button textbutton button_slide slide_right" href="/homecrm" style="border-radius:18px; margin-top:15px;">Volver al inicio</a>
             </div>
           </div>
 
           </form>
 
-          
-     
-
-        <div class="uk-width-1-1@s uk-card uk-card-body uk-text-center" style="margin-top:40px; padding:0; font-family:Monserrat, sans-serif;">
-          <a class="uk-button-secondary uk-button textbutton button_slide slide_right" href="/homecrm" style="border-radius:18px;">Volver al inicio</a>
-          </div>
-
-        
-       
-
-
-   
-    
-            
-           
-        
-      
-   
-        
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#5000ca" fill-opacity="1" d="M0,128L60,117.3C120,107,240,85,360,74.7C480,64,600,64,720,101.3C840,139,960,213,1080,229.3C1200,245,1320,203,1380,181.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+          </svg>
    
 
 {% endblock %}
