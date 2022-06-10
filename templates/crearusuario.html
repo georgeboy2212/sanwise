@@ -40,21 +40,34 @@
             {% endif %}
             {% endwith %}
      </div>
-           
 
-      <div class="uk-card uk-card-default uk-card-body" style="width:90%; margin-top:60px; margin-left:auto; margin-right:auto; margin-bottom:30px; border-radius:18px; padding:40px;">
+     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#5000ca" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,197.3C384,181,480,139,576,117.3C672,96,768,96,864,96C960,96,1056,96,1152,128C1248,160,1344,224,1392,256L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+    </svg>
+
+     <div style="margin-top:0px; margin-left:60px;">
+      <ul class="uk-breadcrumb">
+       <li><a href="/homecrm" class="underline" style="font-family:'Open Sans', sans-serif; color:#000;">Inicio</a></li>
+       <li><a href="/crearusuario" class="underline" style="font-family:'Open Sans', sans-serif; color:#000; font-weight:bold">Crear Usuario</a></li>
+   
+   </ul>
+ </div>
+        
+     <div style="width:100%;" uk-scrollspy="cls: uk-animation-slide-left; repeat: false">
+      <h1 class="uk-card-title uk-margin-remove-bottom uk-text-left" style="margin-top:60px; margin-left:60px; font-family:'Monserrat', sans-serif; font-weight:bold; font-size:30px;"><i class="fa-solid fa-check-double fa-bounce"></i> Crear Usuario</h1>
+      </div>
+
+      <div class="uk-card  uk-card-body" style="width:90%; margin-top:0px; margin-left:auto; margin-right:auto; margin-bottom:30px; border-radius:18px; padding:40px;" uk-scrollspy="cls: uk-animation-slide-left; repeat: false">
         
             <form action="{{ url_for('crearusuario') }}" method="POST" class="uk-grid-small uk-width-1-1" uk-grid style="padding:0; margin-left:auto; margin-right:auto;">
               {{ form.hidden_tag() }}
             
-            <div style="width:100%;">
-            <h1 class="uk-card-title uk-margin-remove-bottom uk-text-center" style="font-family:'Monserrat', sans-serif; font-weight:bold; font-size:30px;"> Crear Usuario</h1>
-            </div>
+           
             
     
-         <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif">
+         <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="margin-top:0px; padding-bottom:0px; font-family:Montserrat, sans-serif">
               {{ form.nombres.label(class="uk-form-label") }}
-         {{ form.nombres(class="uk-input") }}
+         {{ form.nombres(class="uk-input", style="border-radius:18px;") }}
          {% for error in form.nombres.errors%}
          {{error}}
          {%endfor%}
@@ -62,7 +75,7 @@
     
          <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif">
             {{ form.apellidos.label(class="uk-form-label") }}
-       {{ form.apellidos(class="uk-input") }}
+       {{ form.apellidos(class="uk-input", style="border-radius:18px;") }}
        {% for error in form.apellidos.errors%}
        {{error}}
        {%endfor%}
@@ -70,7 +83,7 @@
     
          <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif">
               {{ form.correo.label(class="uk-form-label") }}
-         {{ form.correo(class="uk-input") }}
+         {{ form.correo(class="uk-input", style="border-radius:18px;") }}
          {% for error in form.correo.errors%}
          {{error}}
          {%endfor%}
@@ -78,7 +91,7 @@
           
          <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="margin-top:5px !important; padding-bottom:0px; font-family:Montserrat, sans-serif">
          {{ form.password.label (class="uk-form-label") }}
-         {{ form.password(class="uk-input") }}
+         {{ form.password(class="uk-input", style="border-radius:18px;") }}
          {% for error in form.password.errors%}
          <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
          {%endfor%}
@@ -87,7 +100,7 @@
     
          <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="margin-top:5px !important; padding-bottom:0px; font-family:Montserrat, sans-serif">
             {{ form.cpassword.label (class="uk-form-label") }}
-            {{ form.cpassword(class="uk-input") }}
+            {{ form.cpassword(class="uk-input", style="border-radius:18px;") }}
             {% for error in form.cpassword.errors%}
             <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
             {%endfor%}
@@ -111,7 +124,9 @@
             </form>
         </div>
       
-   
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#5000ca" fill-opacity="1" d="M0,128L60,117.3C120,107,240,85,360,74.7C480,64,600,64,720,101.3C840,139,960,213,1080,229.3C1200,245,1320,203,1380,181.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
         
    
 

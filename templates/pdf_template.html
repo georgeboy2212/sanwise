@@ -1,0 +1,218 @@
+<meta charset="UTF-8">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<style>
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+
+  .container {
+    position: relative;
+    text-align: center;
+    color: #000;
+  }
+
+  .container2 {
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    color: #000;
+  }
+
+  .centered {
+    position: absolute;
+    top: 55%;
+    left: 65%;
+    transform: translate(-30%, -5%);
+  }
+
+
+  .textspacing{
+    padding:0; 
+    margin:0;
+    line-height:60px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  border-bottom: 1px solid #DDD;
+  font-family:'Open Sans', sans-serif;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+
+.row {margin: 0 -5px; }
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: left;
+  background-color: #A9DFBF;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+</style>
+
+<div>
+  <img src="https://drive.google.com/uc?export=view&id=1hH78g0AAaPQ1haTBtJkAbXIC6wU_ea1f" style="width:15%;">
+</div>
+
+<div class="container" style="margin-top:40px;">
+<img src="https://images.pexels.com/photos/7567525/pexels-photo-7567525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:90%;">
+
+<div class="centered">
+<h2 style="text-align:left; font-family:'Open Sans', sans-serif; font-size:35px; color:#ffffff; text-shadow: 2px 2px gray;">Transformamos tu Información en Analítica de Datos Inteligentes</h2>
+</div> 
+
+</div>
+
+<div style="width:100%; text-align:center; margin-top:150px;">
+  <h3 style="font-family:'Open Sans', sans-serif; font-size:35px; margin-left: auto; margin-right: auto;">Cliente</h3>
+  <p class="textspacing" style="width:60%; background-color:#154360; font-family:'Open Sans', sans-serif; font-size:30px; color:#ffffff; margin-left: auto; margin-right: auto; margin-top:0px; padding:5px;">{{datos_clientes.empresa}}</p>
+  <p class="textspacing" style="width:50%; background-color:#2471A3; font-family:'Open Sans', sans-serif; font-size:28px; margin-left: auto; margin-right: auto; margin-top:0px; padding:5px; color:#ffffff;">{{datos_clientes.nombres}} {{datos_clientes.apellidos}}</p>
+  <p class="textspacing" style="width:40%; background-color:#5499C7; font-family:'Open Sans', sans-serif; font-size:25px; margin-left: auto; margin-right: auto; margin-top:0px; padding:5px; color:#ffffff;">Cotización No. {{datos_cotizacion.id}}</p>
+  <p class="textspacing" style="width:30%; background-color:#7FB3D5; font-family:'Open Sans', sans-serif; font-size:25px; margin-left: auto; margin-right: auto; margin-top:0px; padding:5px; color:#ffffff;">Fecha {{today_date}}</p>
+
+</div>
+
+
+
+
+<div style="margin-top:190px; margin-left:50px; margin-right:50px;">
+
+  <p style="margin-top:80px; font-family:'Open Sans', sans-serif; font-size:20px; padding-top:60px;">Bogotá D.C, {{today_date}}</p>
+
+  <p style="margin-top:60px; font-family:'Open Sans', sans-serif; font-size:20px;">Apreciado</p>
+
+  <p class="textspacing" style="width:80%; background-color:#27AE60; font-family:'Open Sans', sans-serif; font-size:30px; color:#ffffff; padding:5px;">{{datos_clientes.empresa}}</p>
+  <p class="textspacing" style="width:60%; background-color:#58D68D; font-family:'Open Sans', sans-serif; font-size:25px; color:#ffffff; padding:5px;"><span>Atn.</span> {{datos_clientes.nombres}} {{datos_clientes.apellidos}}</p>
+  <p style="margin-top:50px; font-family:'Open Sans', sans-serif; font-size:20px;">Propuesta de Negocio No.: {{datos_cotizacion.id}}</p>
+
+  <p style="margin-top:30px; font-family:'Open Sans', sans-serif; font-size:20px; text-align: justify;">Gracias a la valiosa oportunidad y confianza depositadas por ustedes, fruto del positivo contacto previamente, de manera cordial y atenta remito adjunto para su revisión: Propuesta de Negocio orientada a Potencializar el uso de Workspace en los Colaboradores de su Organización teniendo en cuenta los siguientes beneficios de nuestro Portafolio, así:</p>
+  
+  <div style="width:100%; text-align:center;">
+  <h1 style="margin-top:60px; font-family:'Open Sans', sans-serif; font-size:40px; margin-left:auto; margin-right:auto;">¡I Love Google Workspace!</h1>
+  </div>
+
+  <div>
+    <img src="https://drive.google.com/uc?export=view&id=1pEhkBuBaxI_8wV1hTAMDLFY13qvcXwI3" style="width:25%;">
+  </div>
+
+  <p style="margin-top:30px; font-family:'Open Sans', sans-serif; font-size:20px; text-align: justify;">Nuestro Training garantiza implementación inmediata de Google Workspace en tu Organización. Te convertirás en Gestor de Soluciones integrando herramientas de Google Workspace y Potenciando el Mundo Colaborativo de Ofimática Avanzada.</p>
+
+  <p style="margin-top:30px; font-family:'Open Sans', sans-serif; font-size:20px; text-align: justify;">Bienvenido a la Analitica Predictiva Toma decisiones, controla y evalúa el comportamiento de tu Negocio, Procesos, Proyectos, etc., a través de nuestras Soluciones Customized Dashboards, y consulta tus datos en tiempo real, a través de Móvil o PC.</p>
+
+  <p style="margin-top:30px; font-family:'Open Sans', sans-serif; font-size:20px; text-align: justify;">Ahorra en $$$ en licenciamiento de software. Mediante nuestro Training y Soluciones tu información se procesa y se custodia en la Segura y Potente Nube de Google.</p>
+    
+
+  <div style="width:100%; text-align:center; margin-top:500px;">
+  <h1 style="margin-top:60px; font-family:'Open Sans', sans-serif; font-size:40px; margin-left:auto; margin-right:auto; padding-top:60px;">Conoce Nuestro Portafolio</h1>
+  </div>
+
+
+  <div class="container2 row" style="width:100%; text-align:center; font-family:'Open Sans', sans-serif; margin-top:60px;">
+    <div class="column" style="margin-left: auto; margin-right: auto;">
+      <div class="card" style="margin-left: auto; margin-right: auto; font-family:'Open Sans', sans-serif;">
+        <img src="https://drive.google.com/uc?export=view&id=1YZ24qEovGP3_VMP8AcARtUbLtZs8tkoK" style="width:100%">
+        <h3>Training I Love Google Workspace</h3>
+        <p>¡Te enamoramos de Workspace!
+          Nuestro Training de 6 horas te Garantiza implementación inmediata 
+          de todas las herramientas Workspace. Cómo:</p>
+        <p>Gestor de Soluciones</p>
+        <p>Sé un experto en el manejo del mundo colaborativo de Google Workspace</p>
+      </div>
+    </div>
+  
+    <div class="column" style="margin-left: auto; margin-right: auto;">
+      <div class="card" style="margin-left: auto; margin-right: auto;">
+        <img src="https://images.pexels.com/photos/186464/pexels-photo-186464.jpeg?cs=srgb&dl=pexels-burak-kebaber-186464.jpg&fm=jpg" style="width:100%;">
+        <h3>Smart Analytics</h3>
+        <p>Toma decisiones, controla y evalúa el comportamiento de tu Negocio, Procesos, Proyecto, etc., a través de Tableros Interactivos, con datos fiables en tiempo real, consultados a través de Móvil o PC. Potencia tus Datos hacia la Analítica Predictiva.</p>
+      </div>
+    </div>
+    
+</div>
+
+
+<div style="width:100%; text-align:center; margin-top:60px;">
+  <h1 style="margin-top:60px; font-family:'Open Sans', sans-serif; font-size:40px; margin-left:auto; margin-right:auto;">Inversión Total</h1>
+  </div>
+
+<div>
+<table style="margin-left: auto; margin-right: auto;">
+  <thead>
+      <tr>
+          <th style="text-align: center; font-size:20px;">Servicio Solicitado</th>
+          <th style="text-align: center; font-size:20px;">Duración (hrs)</th>
+          <th style="text-align: center; font-size:20px;">Costo (hrs)</th>
+          <th style="text-align: center; font-size:20px;">Descuento</th>
+      </tr>
+  </thead>
+
+  
+  <tr>
+      <td style="text-align:center; font-size:18px;">{{datos_solicitud.servicio_campo}}</td>
+      <td style="text-align:center; font-size:18px;">{{datos_cotizacion.numero_horas}}</td>
+      <td style="text-align:center; font-size:18px;">${{datos_cotizacion.costo_servicio}}</td>
+      <td style="text-align:center; font-size:18px;">${{datos_cotizacion.descuento}}</td>
+     
+     
+  </tr>
+  
+
+  <tfoot>
+      <tr>
+       
+          <td style="text-align:right; padding-right:80px; font-size:18px;" colspan="3"><strong>Total:</strong></td>
+          <td style="text-align:center; font-size:18px;">${{total}}</td>
+      </tr>
+  </tfoot>
+</table>
+</div>
+
+<div style="width:100%; text-align:center; margin-top:40px;">
+  <h3 style="margin-top:60px; font-family:'Open Sans', sans-serif; font-size:30px; margin-left:auto; margin-right:auto;">Forma de Pago</h3>
+  </div>
+
+<p style="margin-top:30px; font-family:'Open Sans', sans-serif; font-size:20px; margin-left:30px; margin-right:30px; text-align: justify;">Efectivo / Transferencia - 50% Anticipado, 50% Contraentrega. Total después de retenciones</p>
+<p style="margin-top:30px; font-family:'Open Sans', sans-serif; font-size:20px; margin-left:30px; margin-right:30px; text-align: justify;">Bancolombia Cta de Ahorros 650-894673-94</p>
+<p style="margin-top:30px; font-family:'Open Sans', sans-serif; font-size:20px; margin-left:30px; margin-right:30px; text-align: justify;">TRM de acuerdo a fecha de Orden de Compra/Pedido</p>
+<p style="margin-top:30px; font-family:'Open Sans', sans-serif; font-size:20px; margin-left:30px; margin-right:30px; text-align: justify;">Contribuyente: Persona Natural</p>
+<p style="margin-top:30px; font-family:'Open Sans', sans-serif; font-size:20px; margin-left:30px; margin-right:30px; text-align: justify;">Actividad Económica: 7020 / 8211. Validez 15 días.</p>
+  
+   
+  
+
+
+        
+        
+      
+   

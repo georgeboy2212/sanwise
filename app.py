@@ -2,9 +2,9 @@ import os
 from itsdangerous import URLSafeTimedSerializer
 from datetime import timedelta, datetime
 from typing import Optional
-from flask import Flask, render_template, redirect, url_for, flash, request, abort, session, g, current_app
+from flask import Flask, render_template, redirect, url_for, flash, request, abort, session, g, current_app, make_response
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, validators, IntegerField, SelectField, DateTimeField, TextAreaField, SelectMultipleField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, validators, IntegerField, DecimalField, SelectField, DateTimeField, TextAreaField, SelectMultipleField
 from wtforms.validators import DataRequired, InputRequired, Email, Length, Regexp, Optional, EqualTo, ValidationError
 from flask_sqlalchemy  import SQLAlchemy, BaseQuery
 from sqlalchemy import ForeignKey
@@ -25,12 +25,14 @@ from flask_mail import Mail, Message
 from functools import wraps
 from flask_principal import Principal, RoleNeed, UserNeed, Permission, Identity, identity_changed, identity_loaded, AnonymousIdentity
 from werkzeug.utils import cached_property
+import pdfkit
+
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '6&GhN4$qAo68-jE+_xY3erty69dpdof*3gdfgfgdjfjekesaassasaas4$'
 app.config['SECURITY_PASSWORD_SALT'] ='9HDg49$=_QKHWPYNKRHjnthro903jxidjshñkñjkhshsqj47-'
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://PLJlQvbfL9:Pf4IB3DyTM@remotemysql.com/PLJlQvbfL9"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://PLJlQvbfL9:UIRr5KvlDw@remotemysql.com/PLJlQvbfL9"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {"pool_pre_ping": True, "pool_recycle": 300}
 app.config['WHOOSH_BASE'] = '/home/georgeboy/jose-project/whoosh'
@@ -93,9 +95,7 @@ class Clientes(db.Model):
     checkbox = db.Column(db.Boolean, nullable=False)
     cotizaciones = db.relationship('Cotizacion', backref='clientes_cotizan', lazy=True)
     solicitudes = db.relationship('Solicitud', backref='sol_client', lazy=True)
-
-    
-    
+   
 
     def __init__(self, nombres, apellidos, correo, empresa, celular, mensaje, checkbox, sol_client):
         
@@ -107,6 +107,7 @@ class Clientes(db.Model):
         self.mensaje = mensaje
         self.checkbox = checkbox
         self.sol_client = sol_client
+        
         
         
     
@@ -121,18 +122,24 @@ class Solicitud(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     
     servicio_campo = db.Column(db.String(120), nullable=False)
+    
     asesore = db.Column(db.String(120), nullable=False)
 
      # LLAVE FORANEA
     solicitud_cliente = db.Column(db.Integer, db.ForeignKey("clientes.id"), nullable=True)
-
+    solicitudes_cliente = db.relationship('Cotizacion', backref='clientes_solicitan', lazy=True)
     
+    
+  
 
-    def __init__(self, servicio_campo, asesore, sol_client):
+    def __init__(self, servicio_campo, asesore, sol_client, servicio_cliente):
        
         self.servicio_campo = servicio_campo
         self.asesore = asesore
         self.sol_client = sol_client
+        self.servicio_cliente = servicio_cliente
+  
+     
        
 
 
@@ -141,24 +148,31 @@ class Cotizacion(db.Model):
     __tablename__ = "cotizacion"
 
     id = db.Column(db.Integer, primary_key=True)
-    numero_personas = db.Column(db.Integer, nullable=False)
-    valor_personas = db.Column(db.Integer, nullable=False)
+    
+    costo_servicio = db.Column(db.Integer, nullable=False)
     numero_horas = db.Column(db.Integer, nullable=False)
-    valor_hora = db.Column(db.Integer, nullable=False)
-    descuento = db.Column(db.Integer, nullable=False)
+    
+    descuento = db.Column(db.Float, nullable=False)
+
 
     # LLAVE FORANEA
     cliente_id = db.Column(db.Integer, db.ForeignKey("clientes.id"), nullable=True)
+    solicitud_id = db.Column(db.Integer, db.ForeignKey("solicitud.id"), nullable=True)
+    servicio_id = db.Column(db.Integer, db.ForeignKey("servicio.id"), nullable=True)
+    
+   
     
     
 
-    def __init__(self, numero_personas, valor_personas, numero_horas, valor_hora, descuento, clientes_cotizan):
-        self.numero_personas = numero_personas
-        self.valor_personas = valor_personas
+    def __init__(self, numero_horas, descuento, costo_servicio, clientes_cotizan, clientes_solicitan):
+       
         self.numero_horas = numero_horas
-        self.valor_hora = valor_hora
         self.descuento = descuento
+        self.costo_servicio = costo_servicio
         self.clientes_cotizan = clientes_cotizan
+        self.clientes_solicitan = clientes_solicitan
+        
+        
       
        
 
@@ -168,22 +182,19 @@ class Cotizacion(db.Model):
 
 
 
-
 class Servicio(db.Model):
     __tablename__ = "servicio"
 
     id = db.Column(db.Integer, primary_key=True)
     nombre_servicio = db.Column(db.String(120), nullable=False)
-    costo_servicio = db.Column(db.Integer, nullable=False)
+    
     
 
-
-    def __init__(self, nombre_servicio, costo_servicio, service_client):
+    def __init__(self, nombre_servicio, cotizacion_servicios):
         self.nombre_servicio = nombre_servicio
-        self.costo_servicio = costo_servicio
-        self.service_client = service_client
-        
-        
+        self.cotizacion_servicios = cotizacion_servicios
+    
+    
 
 
 class Asesor(db.Model):
@@ -227,7 +238,7 @@ class form_servicios(FlaskForm):
     
         
     nombre_servicio = StringField("Ingresa el nombre del servicio a incluir", validators=[InputRequired(), Email(message="Nombre de servicio inválido, por favor intenta nuevamente"), Length(min=1, max=120)])
-    costo_servicio = IntegerField('Ingresa el costo del servicio', validators=[DataRequired(message='Campo Mandatorio'), Length(min=0, max=100000, message="")])
+ 
 
     submit = SubmitField('Crear Servicio')
 
@@ -252,11 +263,9 @@ class creacion_Asesor(FlaskForm):
 
 class creacion_Cotizacion(FlaskForm):
 
-    numero_personas = IntegerField('Número total de personas', validators=[DataRequired(message='Campo Mandatorio'), Length(min=0, max=100000, message="")])
-    valor_personas = IntegerField('Valor por persona', validators=[DataRequired(message='Campo Mandatorio'), Length(min=0, max=100000, message="")])
+    costo_servicio = IntegerField('Ingresa el costo del servicio', validators=[DataRequired(message='Campo Mandatorio'), Length(min=0, max=100000, message="")])
     numero_horas = IntegerField('No de horas', validators=[DataRequired(message='Campo Mandatorio'), Length(min=0, max=100000, message="")])
-    valor_hora = IntegerField('Valor por hora', validators=[DataRequired(message='Campo Mandatorio'), Length(min=0, max=100000, message="")])
-    descuento = IntegerField('Ingrese el % de descuento', validators=[DataRequired(message='Campo Mandatorio'), Length(min=0, max=100000, message="")])
+    descuento = DecimalField(label='Ingrese el % de descuento', description="Descuento", places=2)
         
     submit = SubmitField('Crear Cotizacion')
 
@@ -349,7 +358,7 @@ class correoForm(FlaskForm):
 class formResetPassword(FlaskForm):
     password = PasswordField('Contraseña', validators=[InputRequired(), Length(8, 72, message="La contraseña debe tener al menos 8 caracteres y máximo 72 de longitud")])
     cpassword = PasswordField('Confirma tu contraseña', validators=[InputRequired(), Length(8, 72), EqualTo("password", message="Las contraseñas no coinciden")])
-    submit = SubmitField('Reiniciar Password')
+    submit = SubmitField('Cambiar Password')
 
 
 # clase para crear formulario creacion de admin users
@@ -468,7 +477,13 @@ def olvidopassnuevo(token):
                 return redirect(url_for('login'))
     else:
         flash('No fue posible reiniciar su password, por favor intenta de nuevo', 'danger')
-    return redirect(url_for('login'))
+    return render_template("forgot_new.html", form=form)
+
+
+
+@app.context_processor
+def inject_today_date():
+    return {'today_date': datetime.now()}
 
 @app.route('/homecrm', methods=("GET", "POST"))
 @login_required
@@ -477,13 +492,22 @@ def homecrm():
     return render_template("profile.html", nombres=current_user.nombres, correo=current_user.correo, role=current_user.role)
 
 
-@app.route('/', methods=["GET", "POST"])
-def index():
-    form = form_clientes(request.form)
+@app.route('/smart-analytics', methods=["GET", "POST"])
+def smartanalytics():
+    
+    return render_template('smartanalytics.html')
 
-    if form.validate_on_submit() and form.validate():
-       
-        servicios = form.servicios.data
+@app.route('/i-love-google-workspace', methods=["GET", "POST"])
+def ilove():
+    return render_template('ilove.html')
+
+
+@app.route('/contactenos', methods=["GET", "POST"])
+def contactenos():
+    form = form_clientes(request.form)
+    
+    if form.validate_on_submit() and form.validate():   
+        
         nombres = form.nombres.data
         apellidos = form.apellidos.data
         correo = form.correo.data
@@ -491,7 +515,34 @@ def index():
         celular = form.celular.data
         mensaje = form.mensaje.data
         checkbox = form.checkbox.data
-        nuevoCliente = Clientes(servicios, nombres, apellidos, correo, empresa, celular, mensaje, checkbox)
+        sol_client = form_clientes
+        nuevoCliente = Clientes(nombres, apellidos, correo, empresa, celular, mensaje, checkbox, sol_client)
+        db.session.add(nuevoCliente)
+        db.session.commit()
+        messages = flash('Tus datos ha sido registrados exitosamente!')
+        msg = Message(subject="Te damos la bienvenida a Sanwise", recipients=[form.correo.data], cc=['jorge.romero.saray@gmail.com'])
+        msg.html = render_template('correoiniciocliente.html', **request.form)
+        mail.send(msg)
+        return render_template('contactformgreetings.html', form=form, messages=messages,)
+    return render_template('contactenos.html', form=form)
+
+
+@app.route('/', methods=["GET", "POST"])
+def index():
+    form = form_clientes(request.form)
+
+    if form.validate_on_submit() and form.validate():
+       
+        
+        nombres = form.nombres.data
+        apellidos = form.apellidos.data
+        correo = form.correo.data
+        empresa = form.empresa.data
+        celular = form.celular.data
+        mensaje = form.mensaje.data
+        checkbox = form.checkbox.data
+        sol_client = form_clientes
+        nuevoCliente = Clientes(nombres, apellidos, correo, empresa, celular, mensaje, checkbox, sol_client)
         db.session.add(nuevoCliente)
         db.session.commit()
         messages = flash('Tus datos ha sido registrados exitosamente!')
@@ -607,7 +658,10 @@ def admin():
 @login_required
 def crearusuario():
     form = creacion_Usuario(request.form)
-    user1= Usuarios(
+    
+    if current_user.role == True:
+        if form.validate_on_submit():
+            user1= Usuarios(
             nombres=form.nombres.data,
             apellidos=form.apellidos.data,
             correo=form.correo.data,
@@ -616,8 +670,6 @@ def crearusuario():
             registrado_en=datetime.now(),
             confirmado=True,
             confirmado_en=datetime.now())
-    if current_user.role == True:
-        if request.method == 'POST':
             try:
                 db.session.add(user1)
                 db.session.commit()
@@ -674,7 +726,8 @@ def crearasesor():
         if request.method == 'POST':
             db.session.add(crearasesore)
             db.session.commit()
-            flash('El Asesor ha sido creado exitosamente!', 'success')
+            message = f"El Asesor {crearasesore.primernombre_asesor} {crearasesore.apellido_asesor} ha sido creado exitosamente"
+            flash(message, 'success')
             return redirect(url_for('listarasesor', form=form, clints=clints, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role))
           
     else:
@@ -743,8 +796,8 @@ def crearservicio():
     form = form_servicios(request.form)
     crearservice= Servicio(
             nombre_servicio=form.nombre_servicio.data,
-            costo_servicio=form.costo_servicio.data,
-            service_client = servi
+            cotizacion_servicios=servi
+            
             )
          
     if current_user.role == True:
@@ -792,7 +845,7 @@ def editarservicio(id):
                
             db.session.add(editarServicio)
             db.session.commit()
-            message = f"El Asesor {editarServicio.nombre_servicio} ha sido editado exitosamente"
+            message = f"El Servicio {editarServicio.nombre_servicio} ha sido editado exitosamente"
             flash(message, 'success')
            
             return redirect(url_for('listarservicios', editarServicio=editarServicio, nombres=current_user.nombres, correo=current_user.correo, id=id))
@@ -818,7 +871,7 @@ def eliminarcliente(id):
         if request.method == 'POST':
             db.session.delete(borrarCliente)
             db.session.commit()
-            flash('El usuario ha sido eliminado exitosamente', 'success')
+            flash('El cliente ha sido eliminado exitosamente', 'success')
             return redirect(url_for('listarclientes', borrarCliente=borrarCliente, nombres=current_user.nombres, correo=current_user.correo))
     else:
         abort(401)
@@ -840,7 +893,7 @@ def editarcliente(id):
                 editarCliente.celular = request.form['celular']
                 db.session.add(editarCliente)
                 db.session.commit()
-                flash('El usuario ha sido editado exitosamente', 'success')
+                flash('El cliente ha sido editado exitosamente', 'success')
                 return redirect(url_for('listarclientes', editarCliente=editarCliente, nombres=current_user.nombres, correo=current_user.correo, id=id, form=form))
     else:
         abort(401)
@@ -860,66 +913,173 @@ def crearcliente():
             celular=form.celular.data,
             mensaje = form.mensaje.data,
             checkbox = form.checkbox.data,
-            sol_client = clint )
+            sol_client = clint
+            )
 
 
     if current_user.role == True:
         if request.method == 'POST':
-            try:
-                db.session.add(client)
-                db.session.commit()
-                flash('El cliente ha sido creado exitosamente', 'success')
-                return redirect(url_for('listarclientes', form=form))
-            except InvalidRequestError:
-                db.session.rollback()
-                flash(f"Something went wrong!", "danger")
-
-            except IntegrityError:
-                db.session.rollback()
-                flash(f"Correo ingresado ya existe!.", "warning")
-            except DataError:
-                db.session.rollback()
-                flash(f"Invalid Entry", "warning")
-            except InterfaceError:
-                db.session.rollback()
-                flash(f"Error connecting to the database", "danger")
-            except DatabaseError:
-                db.session.rollback()
-                flash(f"Error connecting to the database", "danger")
-            except BuildError:
-                db.session.rollback()
-                flash(f"An error occured!", "danger")
+            db.session.add(client)
+            db.session.commit()
+            message = f"El cliente {client.nombres} {client.apellidos} ha sido creado exitosamente"
+            flash(message, 'success')
+            return redirect(url_for('listarclientes', form=form))
+          
     else:
         abort(401)
 
     return render_template('crearcliente.html', form=form, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role)
 
 
-@app.route('/listarcotizacion')
+@app.route('/gestionar-solicitudes')
 @login_required
-def listarcotizacion():
+def versolicitudes():
     if current_user.role == True:
-        clientes= db.session.query(Clientes).all()
-        return render_template('listacotizacion.html', clientes=clientes, nombres=current_user.nombres, correo=current_user.correo)
+        clientes= db.session.query(Solicitud.id, Solicitud.servicio_campo, Solicitud.asesore, Clientes.nombres, Clientes.apellidos, Clientes.correo, Clientes.empresa, Clientes.mensaje, Clientes.celular).join(Clientes).order_by(Solicitud.id).all()
+        return render_template('versolicitud.html', clientes=clientes, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role)
 
-
-@app.route('/listarsolicitud')
+@app.route('/gestionar-cotizaciones')
 @login_required
-def listarsolicitud():
+def vercotizaciones():
     if current_user.role == True:
-        clientes= db.session.query(Solicitud.id, Solicitud.servicio_campo, Solicitud.asesore, Clientes.nombres, Clientes.apellidos, Clientes.correo, Clientes.empresa).join(Clientes).all()
-      
-       
+        cotizaciones= db.session.query(Cotizacion.id, Clientes.nombres, Clientes.apellidos, Clientes.correo, Clientes.empresa, Clientes.mensaje, Clientes.celular).join(Clientes).order_by(Cotizacion.id).all()
         
-        return render_template('listarsolicitudes1.html', clientes=clientes, nombres=current_user.nombres, correo=current_user.correo)
+        return render_template('listacotizacion.html', cotizaciones=cotizaciones, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role)
 
-@app.route('/crearsolicitudes')
+@app.route('/ver-cotizacion/<int:id>')
 @login_required
-def listarsolicitudes():
+def cotizaciondetalle(id):
     if current_user.role == True:
-        clientes= db.session.query(Clientes).all()
+        datos_cotizacion = (db.session.query(Cotizacion).filter_by(id=id).first())
         
-        return render_template('listarsolicitudes.html', clientes=clientes, nombres=current_user.nombres, correo=current_user.correo)
+        solicitudes = (db.session.query(Solicitud.servicio_campo, Solicitud.asesore).filter_by(id=id).first())
+        
+        datos_clientes = datos_cotizacion.clientes_cotizan
+        
+        total = (datos_cotizacion.numero_horas*datos_cotizacion.costo_servicio)-((datos_cotizacion.numero_horas*datos_cotizacion.costo_servicio)*datos_cotizacion.descuento)
+    
+   
+    
+    return render_template('ver_detalle_cotizacion.html', id=id, datos_cotizacion=datos_cotizacion, datos_clientes=datos_clientes, solicitudes=solicitudes, nombres=current_user.nombres, correo=current_user.correo, total=total)
+    
+
+@app.route('/cotizacion/crear/<int:id>', methods=("GET", "POST"))
+@login_required
+def crearcotizacion(id):
+    
+
+    solicitudes = (db.session.query(Solicitud).filter_by(id=id).one())
+    
+    form = creacion_Cotizacion(request.form)
+    
+    
+    datos_clientes = solicitudes.sol_client
+    
+
+    if current_user.role == True:
+        
+        
+        if request.method == 'POST':
+
+            cotizan = Cotizacion(
+           
+            numero_horas=form.numero_horas.data,
+            descuento=form.descuento.data,
+            costo_servicio = form.costo_servicio.data,
+            
+            clientes_cotizan=datos_clientes,
+            clientes_solicitan=solicitudes,
+            
+            )
+            
+            db.session.add(cotizan)
+            db.session.commit()
+            message = f"La cotizacion ha sido creada exitosamente"
+            flash(message, 'success')
+            return redirect(url_for('vercotizaciones', form=form, id=id, solicitudes=solicitudes, datos_clientes=datos_clientes))
+            
+    else:
+        abort(401)
+
+    return render_template('crearcotizacion.html', nombres=current_user.nombres, correo=current_user.correo, role=current_user.role, id=id, form=form, solicitudes=solicitudes, datos_clientes=datos_clientes)
+
+
+@app.route('/eliminar-cotizacion/<int:id>', methods=("GET", "POST"))
+@login_required
+def eliminarcotizacion(id):
+    
+    eliminar_cotizacion = (db.session.query(Cotizacion).filter_by(id=id).one())
+    
+    if current_user.role == True:
+        
+        if request.method == 'POST':
+            db.session.delete(eliminar_cotizacion)
+            db.session.commit()
+            message = f"La cotizacion {eliminar_cotizacion.id} ha sido eliminada exitosamente"
+            flash(message, 'success')
+            return redirect(url_for('vercotizaciones', id=id, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role, eliminar_cotizacion=eliminar_cotizacion))
+            
+    else:
+        abort(401)
+
+    return render_template('eliminarcotizacion.html', nombres=current_user.nombres, correo=current_user.correo, role=current_user.role, id=id, eliminar_cotizacion=eliminar_cotizacion)
+
+@app.route('/editar-cotizacion/<int:id>', methods=("GET", "POST"))
+@login_required
+def editarcotizacion(id):
+    
+    editar_cotizacion = (db.session.query(Cotizacion).filter_by(id=id).one())
+    
+    form = creacion_Cotizacion(request.form)
+    
+
+    if current_user.role == True:
+        
+        if request.method == 'POST':
+             if request.form['costo_servicio']:
+                editar_cotizacion.costo_servicio = request.form['costo_servicio']
+                editar_cotizacion.numero_horas = request.form['numero_horas']
+                editar_cotizacion.descuento = request.form['descuento']
+                
+                
+                db.session.add(editar_cotizacion)
+                db.session.commit()
+                message = f"La cotización {editar_cotizacion.id} ha sido editada exitosamente"
+                flash(message, 'success')
+                return redirect(url_for('vercotizaciones', id=id, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role, editar_cotizacion=editar_cotizacion))
+            
+    else:
+        abort(401)
+
+    return render_template('editarcotizacion.html', nombres=current_user.nombres, correo=current_user.correo, role=current_user.role, id=id, editar_cotizacion=editar_cotizacion)
+
+
+
+
+
+@app.route('/cotizacion/clientes/<int:id>', methods=("GET", "POST"))
+def pdf_template(id):
+    
+    datos_cotizacion = (db.session.query(Cotizacion).filter_by(id=id).first())
+    
+    datos_solicitud = datos_cotizacion.clientes_solicitan
+    
+    datos_clientes = datos_cotizacion.clientes_cotizan
+    
+    total = (datos_cotizacion.numero_horas*datos_cotizacion.costo_servicio)-((datos_cotizacion.numero_horas*datos_cotizacion.costo_servicio)*datos_cotizacion.descuento)
+    
+
+    
+    pdf_template = render_template('pdf_template.html', id=id, datos_solicitud=datos_solicitud, datos_cotizacion=datos_cotizacion, datos_clientes=datos_clientes, total=total)
+    documento_pdf = pdfkit.from_string(pdf_template, False)
+    
+    response = make_response(documento_pdf)
+    response.headers['Content-Type'] = 'application/pdf'
+    response.headers['Content-Disposition'] = 'inline; filename=Propuesta_Negocio.pdf'
+    
+    return response
+    
+    
 
 
 @app.route('/crearsolicitudes/crear/<int:id>', methods=("GET", "POST"))
@@ -928,6 +1088,7 @@ def crearsolicitud(id):
     
     client = (db.session.query(Clientes).filter_by(id=id).one())
     form = form_solicitudes(request.form)
+    datos_solicitud = (db.session.query(Solicitud).filter_by(id=id).first())
     
 
     if current_user.role == True:
@@ -939,16 +1100,16 @@ def crearsolicitud(id):
               
                 servicio_campo = form.servicio_campo.data,
                 asesore = form.asesore.data,
-                sol_client = client
+                sol_client = client,
+                servicio_cliente=datos_solicitud
+             
                 )
             
-            
-            print(solicitan)
             db.session.add(solicitan)
             db.session.commit()
-            message = f"La solicitud {solicitan.id} ha sido creada exitosamente"
+            message = f"La solicitud {solicitan.id} para {client.empresa} ha sido creada exitosamente"
             flash(message, 'success')
-            return redirect(url_for('listarsolicitud', client=client, id=id, form=form, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role,))
+            return redirect(url_for('versolicitudes', client=client, id=id, form=form, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role,))
             
     else:
         abort(401)
@@ -956,37 +1117,76 @@ def crearsolicitud(id):
     return render_template('crearsolicitudes.html', nombres=current_user.nombres, correo=current_user.correo, role=current_user.role, id=id, client=client, form=form)
 
 
+      
 
-@app.route('/cotizaciones/crear/<int:id>', methods=("GET", "POST"))
+@app.route('/crearsolicitud')
 @login_required
-def crearcotizacion(id):
-    client = (db.session.query(Clientes).filter_by(id=id).one())
-    
-    form = creacion_Cotizacion(request.form)
+def listarsolicitudes():
+    if current_user.role == True:
+        
+        
+        clientes= db.session.query(Clientes).all()
+        return render_template('listarsolicitudes.html', clientes=clientes, nombres=current_user.nombres, correo=current_user.correo)
 
+
+
+
+
+@app.route('/editarsolicitud/<int:id>', methods=("GET", "POST"))
+@login_required
+def editarsolicitud(id):
+    
+    editar_solicitud = (db.session.query(Solicitud).filter_by(id=id).one())
+    
+    form = form_solicitudes(request.form)
+    
 
     if current_user.role == True:
         
         if request.method == 'POST':
-
-            cotizan = Cotizacion(
-            numero_personas=form.numero_personas.data,
-            valor_personas=form.valor_personas.data,
-            numero_horas=form.numero_horas.data,
-            valor_hora=form.valor_hora.data,
-            descuento=form.descuento.data,
-            clientes_cotizan = client
-            )
-            
-            db.session.add(cotizan)
-            db.session.commit()
-            flash('La cotización ha sido creado exitosamente', 'success')
-            return render_template('crearcotizacion.html', client=client, form=form, id=id)
+             if request.form['servicio_campo']:
+                editar_solicitud.servicio_campo = request.form['servicio_campo']
+                editar_solicitud.asesore = request.form['asesore']
+                
+                
+                db.session.add(editar_solicitud)
+                db.session.commit()
+                message = f"La solicitud {editar_solicitud.id} ha sido editada exitosamente"
+                flash(message, 'success')
+                return redirect(url_for('versolicitudes', id=id, form=form, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role, editar_solicitud=editar_solicitud))
             
     else:
         abort(401)
 
-    return render_template('crearcotizacion.html', nombres=current_user.nombres, correo=current_user.correo, role=current_user.role, id=id, client=client, form=form)
+    return render_template('editarsolicitudes.html', nombres=current_user.nombres, correo=current_user.correo, role=current_user.role, id=id, form=form, editar_solicitud=editar_solicitud)
+
+
+@app.route('/eliminarsolicitud/<int:id>', methods=("GET", "POST"))
+@login_required
+def eliminarsolicitud(id):
+    
+    borrarSolicitud = (db.session.query(Solicitud).filter_by(id=id).one())
+    
+    
+
+    if current_user.role == True:
+        
+        if request.method == 'POST':
+            db.session.delete(borrarSolicitud)
+            db.session.commit()
+            message = f"La solicitud {borrarSolicitud.id} ha sido eliminada exitosamente"
+            flash(message, 'success')
+            return redirect(url_for('versolicitudes', id=id, nombres=current_user.nombres, correo=current_user.correo, role=current_user.role,))
+            
+    else:
+        abort(401)
+
+    return render_template('eliminarsolicitudes.html', nombres=current_user.nombres, correo=current_user.correo, role=current_user.role, id=id)
+
+
+
+
+
 
 @app.route('/listarusuarios')
 @login_required

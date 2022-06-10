@@ -10,37 +10,40 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="{{ url_for('static', filename='faviconsan.ico') }}">
     <script src="uikit/dist/js/uikit-icons.min.js"></script>
+    <script src="https://kit.fontawesome.com/9c660f0063.js" crossorigin="anonymous"></script>
 
       <title>{% block title %} {% endblock %}</title>
   </head>
   <body>
 <header>
-        <nav uk-sticky="bottom: #uk-navbar-container; sel-target: .uk-navbar-container; cls-active:uk-navbar-sticky;" class="uk-navbar-container uk-navbar-transparent uk-flex-column uk-flex-top uk-box-shadow-medium" data-uk-navbar data-uk-toggle="media:@s; cls: uk-flex-row uk-flex-top; mode:media" style="background-color:transparent;">
+  
+        <nav class="uk-navbar-container uk-navbar-transparent uk-flex-column uk-flex-top uk-box-shadow-medium uk-width-1-1" data-uk-navbar data-uk-toggle="media:@s; cls: uk-flex-row uk-flex-top; mode:media" style="margin:0; background-color:#ffffff; position:relative;">
          
                <button type="button" data-uk-toggle="target:" class="uk-navbar-toggle uk-hidden@s" data-uk-navbar-toggle-icon uk-toggle="target: #sidenav" style="padding-left:10px;">
                </button>
                <div class="uk-hidden@s" style="position:absolute; padding-top:26px; padding-left:50px; height:10px">
-               <strong><span>Menu</span></strong>
+               <strong><span>Sanwise</span></strong>
                 </div>
                
               
                
               
            
-           <div class="" style="width:100%; margin-left:auto; margin-right:auto uk-text-center">
-            <div class="uk-navbar-center uk-visible@s uk-navbar-transparent uk-text-center" style="margin-left:auto; margin-right:auto; width:100%; position:absolute; margin-top:50px;">
+           <div class="uk-position-relative" style="width:100%; margin-left:auto; margin-right:auto uk-text-center">
+            <div class="uk-navbar-center uk-visible@s uk-navbar-transparent uk-text-center uk-position-relative" style="margin-left:auto; margin-right:auto; width:100%; position:absolute; margin-top:0px; background-color:#ffffff; padding-top:15px; padding-bottom:15px; padding-right:0px;">
                 <ul data-uk-toggle="media:@s; cls: uk-navbar-nav uk-padding-remove; mode: media" class="uk-nav uk-nav-primary uk-padding-small" style="margin-left:auto; margin-right:auto;">
-                     <img class="uk-navbar-item uk-logo uk-navbar-toggle" src="/static/img/sanwisedark.png" style="margin-right:70px; margin-left:70px; width:15%; height:10%">
+                     <img class="uk-navbar-item uk-logo uk-navbar-toggle" src="/static/img/sanwiselogo1.png" style="margin-right:70px; margin-left:70px; width:15%; height:10%">
      
         
             <li class="uk-text-middle" style="">
-                <a  class="uk-text-capitalize" href="#" style="padding-top:40px; color:#fdfefe; font-family: 'Audiowide', cursive; font-size:1.2vw; font-weight:bold">Smart Analytics  <i class="fas fa-chevron-down" style="color:#fdfefe; font-size:1.0vw"></i></a>
+                <a  class="uk-text-capitalize" href="#" style="padding-top:20px; color:#000; font-family: 'Audiowide', cursive; font-size:1.2vw; font-weight:bold">Smart Analytics  <i class="fas fa-chevron-down" style="color:#000; font-size:1.0vw"></i></a>
                 <div class="uk-navbar-dropdown" style="background-color:#FFFFFF;" uk-dropdown="animation: uk-animation-slide-top-small; duration: 500">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                         <li class="uk-active"><span class="uk-text-left"><strong>Smart Analytics Solutions</strong></span></li>
-                        <li><a href="#" class="uk-text-left" style="text-align:left">Customización de tableros de control</a></li>
+                        <li><a href="/smart-analytics" class="uk-text-center" style="text-align:center">Customización de tableros de control</a></li>
                         
                                  
                     </ul>
@@ -49,12 +52,12 @@
             </li>
                  
                     <li>
-                        <a class="uk-text-capitalize" href="#"  style="padding-top:40px; color:#fdfefe; font-family: 'Audiowide', cursive;  font-weight:bold; font-size:1.2vw">Trainings <i class="fas fa-chevron-down" style="font-size:1.0vw"></i></a>
+                        <a class="uk-text-capitalize" href="#"  style="padding-top:20px; color:#000; font-family: 'Audiowide', cursive;  font-weight:bold; font-size:1.2vw">Trainings <i class="fas fa-chevron-down" style="font-size:1.0vw"></i></a>
                         <div class="uk-navbar-dropdown" style="background-color:#FFFFFF;"  uk-dropdown="animation: uk-animation-slide-top-small; duration: 500">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
-                                <li class="uk-active"><span class="uk-text-left"><strong>Nuestros Entrenamientos y Talleres</strong></span></li>
-                                <li><a href="#">I Love Google WorkSpace</a></li>
-                                <li><a href="#">Trainings</a></li>
+                                <li class="uk-active"><span class="uk-text-center"><strong>Nuestros Entrenamientos y Talleres</strong></span></li>
+                                <li><a href="/i-love-google-workspace" class="uk-text-center" style="text-align:center">I Love Google WorkSpace</a></li>
+                               
                             
                                  
                            </ul>
@@ -63,11 +66,11 @@
                    
 
                 <li>
-                        <a class="uk-text-capitalize" href="#" style="padding-top:40px; color:#fdfefe; font-family: 'Audiowide', cursive;  font-weight:bold; font-size:1.2vw">Contáctanos <i class="fas fa-chevron-down" style="font-size:1.0vw"></i></a>
+                        <a class="uk-text-capitalize" href="#" style="padding-top:20px; color:#000; font-family: 'Audiowide', cursive;  font-weight:bold; font-size:1.2vw">Contáctanos <i class="fas fa-chevron-down" style="font-size:1.0vw"></i></a>
                         <div class="uk-navbar-dropdown" style="background-color:#FFFFFF"  uk-dropdown="animation: uk-animation-slide-top-small; duration: 500">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><span class="uk-text-left"><strong>Empecemos una conversación</strong></span></li>
-                                <li><a href="#">Contactarme con un asesor</a></li>
+                                <li><a href="/contactenos">Contactarme con un asesor</a></li>
                                 
                                  
                            </ul>
@@ -75,7 +78,7 @@
                  </li>
 
                  <li>
-                    <a class="uk-text-capitalize" href="/inicio" style="padding-top:40px; color:#fdfefe; font-family: 'Audiowide', cursive;  font-weight:bold; font-size:1.2vw"><i class="far fa-user" style="font-size:1.0vw; color:#fdfefe;"></i> Gestión Clientes</a>
+                    <a class="uk-text-capitalize" href="/inicio" style="padding-top:20px; color:#000; font-family: 'Audiowide', cursive;  font-weight:bold; font-size:1.2vw"><i class="fa solid fa-universal-access fa-flip" style="font-size:20px; color:#000;"></i> Login CRM</a>
                     
              </li>
                 
@@ -91,16 +94,20 @@
     </div>
 </header>
 
+<!-- Generated by https://smooth.ie/blogs/news/svg-wavey-transitions-between-sections -->
+
+<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-3.11,109.03 C150.00,150.00 349.20,-50.00 512.69,166.27 L48.81,168.25 L0.00,150.00 Z" style="stroke: none; fill: #08f;"></path></svg>
+</div>
+
 <footer class="uk-block uk-block-secondary" id="footer" style="background-color:#08f;">
     <div class="uk-container uk-container-center uk-text-center" style="">
       <img class="uk-navbar-item uk-logo uk-navbar-toggle uk-text-center invert" src="/static/img/sanwisedark.png" style="color:#ffffff; width:150px; height:auto; margin-left:auto; margin-right:auto; filter: brightness(0) invert(1);">
       <ul class="uk-subnav uk-subnav-line uk-flex-center" style="background-color:#08f;">
-        <li><a class="uk-text-capitalize" href="/dashboards" style="color:#ffffff;">Dashboards</a></li>
-        <li><a class="uk-text-capitalize" href="/trainings" style="color:#ffffff;">Trainings</a></li>
-        <li><a class="uk-text-capitalize"  href="/googleworkspace" style="color:#ffffff;">Google WorkSpace Suite</a></li>
-        <li><a class="uk-text-capitalize" href="/contact" style="color:#ffffff;">Contáctanos</a></li>
+        <li><a class="uk-text-capitalize" href="/smart-analytics" style="color:#ffffff;">Smart Analytics</a></li>
+        <li><a class="uk-text-capitalize" href="/i-love-google-workspace" style="color:#ffffff;">Trainings</a></li>
+        <li><a class="uk-text-capitalize" href="/contactenos" style="color:#ffffff;">Contáctanos</a></li>
       </ul>
-      <span class="uk-text-capitalize" style="font-size:1.8vh; color:#ffffff;">Copyright &copy; 2021</span>
+      <span class="uk-text-capitalize" style="font-size:1.8vh; color:#ffffff;">Copyright &copy; 2022</span>
     </div>
   </footer>
 
@@ -111,15 +118,14 @@
                <img class="uk-navbar-item uk-logo uk-navbar-toggle" src="/static/img/sanwisedark.png" style="padding:0; color:black; width:150px; height:auto; filter: brightness(0.9) invert(.7) sepia(.0) hue-rotate(300deg) saturate(200%);">
             <li><span class="uk-text-capitalize" style="color:#17202a ; font-family: 'Open Sans', sans-serif;  font-size:1.6vh; margin-bottom:15px; font-weight:bold" class="uk-text-default" href="#">Servicios</span></li>
               <hr style="border-color:#d5d8dc;" class="uk-margin-small">
-            <li><a class="uk-text-capitalize" style="color:#17202a ; font-family: 'Open Sans', sans-serif;  font-size:1.8vh" class="uk-text-default" href="#"><i style="color:#17202a ; font-size:1.8vh; padding-right:5px;" class="fas fa-chart-line"></i> Dashboards</a></li>
+            <li><a class="uk-text-capitalize" style="color:#17202a ; font-family: 'Open Sans', sans-serif;  font-size:1.8vh" class="uk-text-default" href="/smart-analytics"><i style="color:#17202a ; font-size:1.8vh; padding-right:5px;" class="fas fa-chart-line"></i> Smart Analytics</a></li>
              
-            <li><a class="uk-text-capitalize" style="color:#17202a; font-family: 'Open Sans', sans-serif;  font-size:1.8vh" class="uk-text-default" href="#"><i style="color:#17202a; font-size:1.8vh; padding-right:5px;" class="fas fa-users"></i>  Trainings</a></li>
+            <li><a class="uk-text-capitalize" style="color:#17202a; font-family: 'Open Sans', sans-serif;  font-size:1.8vh" class="uk-text-default" href="/i-love-google-workspace"><i style="color:#17202a; font-size:1.8vh; padding-right:5px;" class="fas fa-users"></i>  Trainings</a></li>
             
-            <li><a class="uk-text-capitalize" style="width:100%; color:#17202a; font-family: 'Open Sans', sans-serif;  font-size:1.8vh; margin-bottom:30px;" class="uk-text-default" href="#"><i style="color:#17202a; font-size:1.8vh; padding-right:5px;" class="fas fa-hands-helping"></i> Google WorkSpace Suite</a></li>
              
-             <li><span class="uk-text-capitalize" style="margin-top:30px; color:#17202a ; font-family: 'Open Sans', sans-serif;  font-size:1.6vh; margin-bottom:15px; font-weight:bold" class="uk-text-default" href="#">¿Necesitas ayuda?</span></li>
+             <li><span class="uk-text-capitalize" style="margin-top:30px; color:#17202a ; font-family: 'Open Sans', sans-serif;  font-size:1.6vh; margin-bottom:15px; font-weight:bold" class="uk-text-default">¿Necesitas ayuda?</span></li>
              <hr style="border-color:#d5d8dc;" class="uk-margin-small">
-            <li><a style="color:#17202a; font-family: 'Open Sans', sans-serif;  font-size:1.8vh" class="uk-text-default" href="#"><i style="color:#17202a; font-size:1.8vh; padding-right:5px; padding-top:0;" class="fas fa-headset"></i>  Contáctanos</a></li>
+            <li><a style="color:#17202a; font-family: 'Open Sans', sans-serif;  font-size:1.8vh" class="uk-text-default" href="/i-love-google-workspace"><i style="color:#17202a; font-size:1.8vh; padding-right:5px; padding-top:0;" class="fas fa-headset"></i>  Contáctanos</a></li>
             <li><a style="color:#17202a; font-family: 'Open Sans', sans-serif;  font-size:1.8vh" class="uk-text-default" href="/inicio"><i style="color:#17202a; font-size:1.8vh; padding-right:5px; padding-top:0;" class="far fa-user"></i>  Login CRM</a></li>
             
         </ul>

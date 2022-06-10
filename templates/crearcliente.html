@@ -55,11 +55,11 @@
    </ul>
  </div>
            
-     <div style="width:100%;">
-      <h1 class="uk-card-title uk-margin-remove-bottom uk-text-left" style="margin-top:50px; margin-left:60px; font-family:'Monserrat', sans-serif; font-weight:bold; font-size:25px;"><i class="fa-solid fa-plus fa-bounce"></i> Crear Cliente</h1>
+     <div style="width:100%;" uk-scrollspy="cls: uk-animation-slide-left; repeat: false">
+      <h1 class="uk-card-title uk-margin-remove-bottom uk-text-left" style="margin-top:50px; margin-left:60px; font-family:'Monserrat', sans-serif; font-weight:bold; font-size:25px;"><i class="fa-solid fa-check-double fa-bounce"></i> Crear Cliente</h1>
       </div>
 
-      <div class="uk-card uk-card-default uk-card-body uk-box-shadow-large" style="width:90%; margin-top:30px; margin-left:auto; margin-right:auto; margin-bottom:30px; border-radius:18px; padding:top:30px; padding-right:15px; padding-left:15px; background-color:#f4f6f6;">
+      <div class="uk-card uk-card-default uk-card-body" style="width:90%; margin-top:30px; margin-left:auto; margin-right:auto; margin-bottom:30px; border-radius:18px; padding:top:30px; padding-right:15px; padding-left:15px;" uk-scrollspy="cls: uk-animation-slide-left; repeat: false">
         
             <form action="{{ url_for('crearcliente') }}" method="POST" class="uk-grid-small uk-width-1-1" uk-grid style="padding:0; margin-left:auto; margin-right:auto;">
               {{ form.hidden_tag() }}
@@ -110,6 +110,14 @@
             {%endfor%}
             
         </div>
+
+        <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="margin-top:5px; padding-bottom:0px; font-family:Montserrat, sans-serif; padding-right:10px;">
+          {{ form.mensaje.label(class="uk-form-label") }}
+     {{ form.mensaje(class="uk-input", style="margin-top:8px; border-radius:18px;") }}
+     {% for error in form.mensaje.errors%}
+     {{error}}
+     {%endfor%}
+     </div>
 
         
 

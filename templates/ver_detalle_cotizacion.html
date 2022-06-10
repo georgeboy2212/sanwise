@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" style="">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- uikit CSS -->
+    
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+      <title></title>
+  </head>
+  {% extends 'base2.html' %}
+  <body>
+{% block content %}
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#5000ca" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,197.3C384,181,480,139,576,117.3C672,96,768,96,864,96C960,96,1056,96,1152,128C1248,160,1344,224,1392,256L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+</svg>
+
+
+<div>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="uk-alert-{{category}} uk-text-center"  uk-alert style="width:auto; margin:0; padding:15px; margin-left:30px; margin-right:30px; border-radius:15px; background:transparent; margin-top:10px;" uk-animation="True; duration:3000">
+              <i class="far fa-check-circle"></i> {{ message }}
+                <a class="uk-alert-close" uk-close style="margin-left:10px; color:#000;"></a>
+               
+      
+            
+                
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+     </div>
+
+     <div style="margin-left:30px; margin-top:0px; margin-right:30px;">
+      <ul class="uk-breadcrumb">
+       <li><a href="/homecrm" class="underline" style="font-family:'Open Sans', sans-serif; color:#000;">Inicio</a></li>
+       <li><a href="/ver-cotizacion" class="underline" style="font-family:'Open Sans', sans-serif; color:#000;">Ver Cotizaciones</a></li>
+       <li><a class="underline" style="font-family:'Open Sans', sans-serif; color:#000; font-weight:bold">Ver Detalle Cotizacion</a></li>
+    
+    </ul>
+    </div>
+
+    <div style="margin-top:30px;">
+        <h2 class="uk-width-1-1 uk-text-center" style="font-family:'Open Sans', sans-serif; color:#000; font-weight:bold;">Cotizacion {{datos_cotizacion.id}}</h2>
+    </div>
+
+    <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-match" uk-grid uk-scrollspy="cls: uk-animation-slide-bottom; delay: 400; repeat: false" style="margin-top:50px; margin-left:0px; margin-right:30px;">
+    
+        <div>
+            
+            <div class="uk-card uk-card-small uk-card-body uk-card-default" style="background-color:#5000ca;">
+                <h4 style="font-family:'Open Sans', sans-serif; color:#ffffff;"><i class="fa-solid fa-briefcase fa-beat"></i> Cliente</h4>
+                <p style="font-family:'Open Sans', sans-serif; color:#ffffff;"><span style="font-family:'Open Sans', sans-serif; color:#ffffff;">Cliente:</span> {{datos_clientes.empresa}}</p>
+                <p style="font-family:'Open Sans', sans-serif; color:#ffffff;"><span style="font-family:'Open Sans', sans-serif; color:#ffffff;">Contacto Cliente:</span> {{datos_clientes.nombres}} {{datos_clientes.apellidos}} </p>
+                <p style="font-family:'Open Sans', sans-serif; color:#ffffff;"><span style="font-family:'Open Sans', sans-serif; color:#ffffff;">Correo:</span> {{datos_clientes.correo}} </p>
+                
+                
+            </div>
+        </div>
+
+        <div>
+            <div class="uk-card uk-card-small uk-card-body uk-card-default" style="background-color:#5000ca;">
+                <h4 style="font-family:'Open Sans', sans-serif; color:#ffffff;"><i class="fa-solid fa-circle-nodes fa-beat"></i> Servicio</h4>
+                <p style="font-family:'Open Sans', sans-serif; color:#ffffff;"><span style="font-family:'Open Sans', sans-serif; color:#ffffff;">Servicio Solicitado:</span> {{solicitudes.servicio_campo}}</p>
+                <p style="font-family:'Open Sans', sans-serif; color:#ffffff;"><span style="font-family:'Open Sans', sans-serif; color:#ffffff;">Asesor Asignado:</span> {{solicitudes.asesore}} </p>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="uk-card uk-card-small uk-card-body uk-card-default" style="background-color:#5000ca;">
+                <h4 style="font-family:'Open Sans', sans-serif; color:#ffffff;"><i class="fa-solid fa-coins fa-beat"></i> Duración y Presupuesto</h4>
+                <p style="font-family:'Open Sans', sans-serif; color:#ffffff;">Costo del servicio: ${{datos_cotizacion.costo_servicio}}</p>
+                <p style="font-family:'Open Sans', sans-serif; color:#ffffff;">Número de horas: {{datos_cotizacion.numero_horas}}</p>
+                <p style="font-family:'Open Sans', sans-serif; color:#ffffff;">Descuento asignado: {{datos_cotizacion.descuento}}</p>
+                <p style="font-family:'Open Sans', sans-serif; color:#ffffff;">Total: ${{total}}</p>
+            </div>
+        </div>
+        
+    </div>
+
+
+   
+
+
+
+
+
+    <div class="uk-width-1-1@s uk-card uk-card-body uk-text-center" style="margin-top:30px; padding:0; font-family:Monserrat, sans-serif;">
+        <a class="uk-button uk-button-primary" style="border-radius:18px;" href="{{url_for('pdf_template', id=datos_cotizacion.id)}}" target="_blank">Imprimir Cotización</a>
+       
+    </div>
+
+    <div class="uk-width-1-1@s uk-card uk-card-body uk-text-center" style="margin-top:8px; padding:0; font-family:Monserrat, sans-serif;">
+        <a class="uk-button-secondary uk-button textbutton button_slide slide_right" href="/homecrm" style="border-radius:18px;">Volver al inicio</a>
+    </div>
+
+
+
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#5000ca" fill-opacity="1" d="M0,128L60,117.3C120,107,240,85,360,74.7C480,64,600,64,720,101.3C840,139,960,213,1080,229.3C1200,245,1320,203,1380,181.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+          </svg>
+           
+       
+
+        
+       
+
+
+   
+    
+            
+           
+        
+      
+   
+        
+   
+
+{% endblock %}
+</body>
+
+   <!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+</html>

@@ -201,3 +201,55 @@ input#submit.sendbutton{
  outline: 2px solid #000;  
 }
 
+
+.service:hover{
+   color:rgb(80, 0, 202);
+}
+
+
+.vwrap, .vslide {
+   box-sizing: border-box;
+   margin-left: 10px;
+   width: 220px;
+   height: 80px;
+ }
+  
+ /* (B) OUTER CONTAINER */
+ .vwrap {
+   
+   color:#000;
+   overflow: hidden; /* HIDE SCROLLBARS */
+  
+ }
+  
+ /* (C) MIDDLE CONTAINER */
+ .vmove {
+   position: relative;
+   bottom: 0%;
+ }
+  
+ /* (D) SLIDES */
+ .vslide { padding: 10px; }
+ 
+ /* (E) SLIDE ANIMATION */
+ @keyframes slidev {
+   /* (E0) THE IDEA - USE KEYFRAMES TO SHIFT SLIDES *
+   0% { bottom: 0; }
+   33% { bottom: 100%; }
+   66% { bottom: 200%; }
+   100% { right: 0; }
+  
+   /* (E1) BUT THE ABOVE WILL SHIFT NON-STOP */
+   /* SO WE ADD PAUSES BETWEEN EACH SLIDE */
+   0% { bottom: 0; }
+   30% { bottom: 0; }
+   33% { bottom: 100%; }
+   63% { bottom: 100%; }
+   66% { bottom: 200%; }
+   97% { bottom: 200%; }
+   100% { right: 0; }
+ }
+ .vmove { animation: slidev linear 15s infinite; }
+ .vmove:hover { animation-play-state: paused; }
+
+

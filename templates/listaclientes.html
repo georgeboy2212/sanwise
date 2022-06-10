@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" style="">
+<html lang="en" >
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -24,85 +24,69 @@
 
 {% block content %}
 
-{% with messages = get_flashed_messages(with_categories=true) %}
-
-{% if messages %}
-{% for category, message in messages %}
-<div class="uk-alert-{{category}} uk-text-center"  uk-alert style="width:auto; margin:0; padding:15px; margin-left:30px; margin-right:30px; border-radius:15px; background:transparent; margin-top:10px;" uk-animation="True; duration:3000">
-  <i class="far fa-check-circle"></i> {{ message }}
-    <a class="uk-alert-close" uk-close style="margin-left:10px; color:#000;"></a>
-   
-</div>
-{% endfor %}
-{% endif %}
-{% endwith %}
 
 
-</div>
+
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
   <path fill="#5000ca" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,197.3C384,181,480,139,576,117.3C672,96,768,96,864,96C960,96,1056,96,1152,128C1248,160,1344,224,1392,256L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
 </svg>
 
-<div style="margin-top:0px; margin-left:60px;">
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+{% if messages %}
+{% for category, message in messages %}
+<div style="margin-left:30px; margin-right:30px;">
+<div class="uk-alert-{{category}} uk-text-center"  uk-alert style="width:auto; margin:0; padding:15px; margin-left:auto; margin-right:auto; border-radius:15px; background:transparent; margin-top:10px;" uk-animation="True; duration:3000">
+  <i class="fa-solid fa-circle-check fa-bounce"></i> {{ message }}
+    <a class="uk-alert-close" uk-close style="margin-left:10px; color:#000;"></a>
+   
+</div>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div style="margin-top:30px; margin-left:60px;">
   <ul class="uk-breadcrumb">
    <li><a href="/homecrm" class="underline" style="font-family:'Open Sans', sans-serif; color:#000;">Inicio</a></li>
-   <li><a href="/listarclientes" class="underline" style="font-family:'Open Sans', sans-serif; color:#000; font-weight:bold">Administrar Solicitudes</a></li>
+   <li><a href="/listarclientes" class="underline" style="font-family:'Open Sans', sans-serif; color:#000; font-weight:bold">Administrar Clientes</a></li>
 
 </ul>
 </div>
 
 <div class="uk-width-1-1" style="margin-top:60px; margin-left:auto; margin-right:auto" uk-scrollspy="cls: uk-animation-slide-left; repeat: false">
-  <h1 class="uk-text-left uk-card-title" style="margin-left:60px; font-family:'Open Sans', sans-serif; font-weight:bold; font-size:30px;"><i class="fa-solid fa-check-double fa-bounce"></i> Administrar Clientes</h1>
+  <h1 class="uk-text-left uk-card-title" style="margin-left:60px; margin-right:30px;  font-family:'Open Sans', sans-serif; font-weight:bold; font-size:30px; margin-bottom:30px;"><i class="fa-solid fa-check-double fa-bounce"></i> Administrar Clientes</h1>
   </div>
 
-<div class="uk-card uk-card-default uk-card-body uk-box-shadow-large" uk-scrollspy="cls: uk-animation-slide-left; repeat: false" style="width:90%; margin-top:30px; border-radius:18px; padding:40px; margin-left:auto; margin-right:auto; background-color: #f4f6f6;">
+  {% for cliente in clientes %}
 
+  <div uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; delay: 500; repeat: false" >
+<div class="uk-card uk-card-hover uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-box-shadow-large" uk-grid style="width:80%; margin-left:auto; margin-right:auto; border-radius:18px; background-image:url('https://images.pexels.com/photos/6985119/pexels-photo-6985119.jpeg'); background-size:cover; margin-bottom:50px;">
+    
+    <div>
+        <div class="uk-card-body">
+            <h3 class="uk-card-title" style="color:#ffffff; font-family:'Open Sans', sans-serif; font-weight:bold;">{{cliente.nombres}} {{cliente.apellidos}}</h3>
+            <p class="uk-text-left uk-text-capitalize" style="font-family:Open Sans, sans-serif; color:#ffffff;">Correo: {{cliente.correo}}</p>
+            <p class="uk-text-left uk-text-capitalize" style="font-family:Open Sans, sans-serif; color:#ffffff;">Empresa: {{cliente.empresa}}</p>
+            <p class="uk-text-left uk-text-capitalize" style="font-family:Open Sans, sans-serif; color:#ffffff;">Celular: {{cliente.celular}}</p>
 
-
-<div class="uk-overflow-auto uk-text-center uk-box-shadow-medium" style="margin-top:30px; margin-left:20px; margin-right:20px; border-radius:18px;">
-  <table class="uk-table uk-table-divider uk-table-middle uk-table-hover uk-table-striped uk-table-responsive" style="font-family:Monserrat, sans-serif;">
-      <thead style="background-color:#1734c3;">
-          <tr>
-            <th class="uk-table-shrink uk-width-small uk-text-center uk-text-capitalize" style="font-family:Monserrat, sans-serif; color:#ffffff;">Nombres</th>
-              <th class="uk-table-shrink uk-width-small uk-text-center uk-text-capitalize" style="font-family:Monserrat, sans-serif; color:#ffffff;">Apellidos</th>
-              <th class="uk-table-shrink uk-width-small uk-text-center uk-text-capitalize" style="font-family:Monserrat, sans-serif; color:#ffffff;">Correo</th>
-              <th class="uk-table-shrink uk-width-small uk-text-center uk-text-capitalize" style="font-family:Monserrat, sans-serif; color:#ffffff;">Empresa</th>
-              <th class="uk-table-shrink uk-width-small uk-text-center uk-text-capitalize" style="font-family:Monserrat, sans-serif; color:#ffffff;">Celular</th>
-              <th class="uk-table-shrink uk-width-small uk-text-center uk-text-capitalize" style="font-family:Monserrat, sans-serif; color:#ffffff;">Mensaje</th>
-              <th class="uk-width-small uk-text-center uk-text-capitalize" style="font-family:Monserrat, sans-serif; color:#ffffff;">Editar</th>
-              <th class="uk-width-small uk-text-center uk-text-capitalize" style="font-family:Monserrat, sans-serif; color:#ffffff;">Eliminar</th>
-             
-          </tr>
-      </thead>
- 
-  
-      <tbody>
-        
-        {% for cliente in clientes %}
-          <tr>
-          
-            <td class="uk-text-nowrap" style="font-family:Monserrat, sans-serif;">{{cliente.nombres}}</td>
-            <td class="uk-text-nowrap" style="font-family:Monserrat, sans-serif;">{{cliente.apellidos}}</td>
-            <td class="uk-text-nowrap" style="font-family:Monserrat, sans-serif;">{{cliente.correo}}</td>
-            <td class="uk-text-nowrap" style="font-family:Monserrat, sans-serif;">{{cliente.empresa}}</td>
-            <td class="uk-text-nowrap" style="font-family:Monserrat, sans-serif;">{{cliente.celular}}</td>
-            <td class="uk-text-wrap uk-text-left" style="font-family:Monserrat, sans-serif; font-size:2vh;">{{cliente.mensaje}}</td>
-            <td><a class="" style="text-decoration:none; font-size:20px;" href="{{url_for('editarcliente', id=cliente.id)}}"><i class="far fa-edit" style="color: #ffec33;"></i></a></td>
-              <td><a class="" style="text-decoration:none; font-size:20px;" href="{{url_for('eliminarcliente', id=cliente.id)}}"><i class="far fa-trash-alt" style="color: #ff3333;"></i></a></td>
-          </tr>
-          {% endfor %}
-
-         
-         
-      </tbody>
-  </table>
-  
+            <a class="" style="text-decoration:none; font-size:20px; color:#ffffff" href="{{url_for('editarcliente', id=cliente.id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+            <a class="" style="text-decoration:none; font-size:20px; color:#ffffff" href="{{url_for('eliminarcliente', id=cliente.id)}}"><i class="fa-solid fa-trash"></i></a>
+            
+        </div>
+    </div>
 </div>
+</div>
+
+{% endfor %}
+
+
+
 <div class="uk-text-center" style="margin-top:20px;">
-<a class="uk-button-secondary uk-button textbutton button_slide slide_right uk-text-center" href="/homecrm" style="border-radius:18px;"><i class="fas fa-fast-backward" style=""></i> Volver a Home</a>
+<a class="uk-button-secondary uk-button textbutton button_slide slide_right uk-text-center" href="/homecrm" style="border-radius:18px;"><i class="fas fa-fast-backward"></i> Volver a Home</a>
 </div>
-</div>
+
 
 
 

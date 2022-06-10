@@ -37,44 +37,32 @@
 {% endif %}
 {% endwith %}
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#5000ca" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,197.3C384,181,480,139,576,117.3C672,96,768,96,864,96C960,96,1056,96,1152,128C1248,160,1344,224,1392,256L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+</svg>
 
 
-
-<div class="uk-position-center uk-card uk-card-default uk-width-1-1" style="margin-top:60px; border-radius:18px; padding:40px; margin-left:auto; margin-right:auto;">
-<h2 class="uk-text-center" style="padding-top:50px; font-family:Montserrat, sans-serif; font-weight:bold;"><i class="fas fa-exclamation-circle" style="color: #fe0051;"></i> Estás seguro que deseas editar este cliente?</h2>
-<p class="uk-text-center" style="font-family:Montserrat, sans-serif;">Ingresa los datos que deseas editar para este cliente</p>
+<div class="uk-card  uk-width-1-1" style="margin-top:0px; border-radius:18px; padding:40px; margin-left:auto; margin-right:auto;">
+<h2 class="uk-text-center" style="padding-top:50px; font-family:Montserrat, sans-serif; font-weight:bold;"><i class="fa-solid fa-circle-exclamation fa-bounce"></i> Estás seguro que deseas editar este cliente {{editarCliente.nombres}}?</h2>
+<p class="uk-text-center" style="font-family:Montserrat, sans-serif; margin-bottom:30px;">Ingresa los datos que deseas editar para este cliente</p>
 
 <form action="{{ url_for('editarcliente', id=id)}}" method = 'post' class="uk-width-1-1 uk-grid-small uk-text-center" uk-grid style="margin-left:auto; margin-right:auto;">
   
-  <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="padding-left:0px; padding-right:0px;  font-family:Montserrat, sans-serif; margin-left:auto; margin-right:auto;">
-    <div class="uk-margin">
-      
-      {{ form.servicios.label(class="uk-form-label") }}
-   {{ form.servicios(class="uk-select") }}
-   {% for error in form.servicios.errors%}
-   <span style="text-decoration:none; color:red; font-size:11px;">{{error}}</span>
-  {%endfor%}
   
-
-      
+  <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="padding-top:0; padding-left:0px; padding-right:0px;  font-family:Montserrat, sans-serif; margin-left:auto; margin-right:auto;">
+    <input class="uk-input" type='text' name="nombres" value={{editarCliente.nombres}} style="border-radius:18px">
   </div>
-   
-  </div>
-  
-  <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="padding-left:0px; padding-right:0px;  font-family:Montserrat, sans-serif; margin-left:auto; margin-right:auto;">
-    <input class="uk-input" type='text' name="nombres" value={{editarCliente.nombres}}>
-  </div>
-    <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="padding-left:15px; padding-right:0px; font-family:Montserrat, sans-serif">
-    <input class="uk-input" type='text' name="apellidos" value={{editarCliente.apellidos}}>
+    <div class="uk-width-1-2@s uk-card uk-card-body uk-text-left" style="padding-top:0; margin-top:0; padding-left:0px; padding-right:0px; font-family:Montserrat, sans-serif">
+    <input class="uk-input" type='text' name="apellidos" value={{editarCliente.apellidos}} style="border-radius:18px">
     </div>
     <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="padding-left:0px; padding-right:0px;  font-family:Montserrat, sans-serif; margin-top:0; padding-top:5px;">
-    <input class="uk-input" type='text' name="correo" value={{editarCliente.correo}}>
+    <input class="uk-input" type='text' name="correo" value={{editarCliente.correo}} style="border-radius:18px">
     </div>
     <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="padding-left:0px; padding-right:0px;  font-family:Montserrat, sans-serif; margin-top:0; padding-top:5px;">
-      <input class="uk-input" type='text' name="empresa" value={{editarCliente.empresa}}>
+      <input class="uk-input" type='text' name="empresa" value={{editarCliente.empresa}} style="border-radius:18px">
     </div>
     <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="padding-left:0px; padding-right:0px;  font-family:Montserrat, sans-serif; margin-top:0; padding-top:5px;">
-      <input class="uk-input" type='text' name="celular" value={{editarCliente.celular}}>
+      <input class="uk-input" type='text' name="celular" value={{editarCliente.celular}} style="border-radius:18px">
     </div>
    <!--- <select class="uk-select"  type="checkbox" name="rol" placeholder="Cambiar a Rol de Admin">
       <option>True</option>
@@ -83,9 +71,9 @@
   </select>
   -->
 
-  <div class="uk-width-1-1 uk-margin uk-text-center" style="margin-top:20px;">
-    <a class="uk-button uk-button-default" href="/listarclientes">Volver</a>
-    <input class="uk-text-center uk-button uk-button-primary" type='submit', value='Editar'>
+  <div class="uk-width-1-1 uk-margin uk-text-center" style="margin-top:10px;">
+    <a class="uk-button uk-button-secondary button_slide slide_right" href="/listarclientes" style="border-radius:18px;">Volver</a>
+    <input class="uk-text-center uk-button uk-button-primary button_slide slide_right" type='submit', value='Editar'style="border-radius:18px;">
 
 </div>
 

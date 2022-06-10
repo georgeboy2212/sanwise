@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <script src="https://kit.fontawesome.com/9c660f0063.js" crossorigin="anonymous"></script>
+    
     <!-- Required meta tags -->
     <meta charset="utf-8">
      <!-- uikit CSS -->
@@ -15,6 +15,7 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='faviconbox.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
     <script src="{{ url_for('static',filename='js/javas.js') }}"></script>
+    <script src="https://kit.fontawesome.com/9c660f0063.js" crossorigin="anonymous"></script>
       <title></title>
   </head>
   <body>
@@ -25,14 +26,14 @@
               <div class="uk-navbar-left">
                 <button type="button" data-uk-toggle="target:" class="uk-navbar-toggle" data-uk-navbar-toggle-icon uk-toggle="target: #reveal" style="padding-left:10px;">
                 </button>
-                  <a href="#" class="uk-navbar-item uk-logo">
-                      Sanwise
+                  <a href="/homecrm" class="uk-navbar-item uk-logo" style="color:#ffffff; font-family:Open Sans, sans-serif">
+                      CRM Sanwise
                   </a>
               </div>
               <div class="uk-navbar-right uk-light">
                   <ul class="uk-navbar-nav">
                       <li class="uk-active">
-                          <a href="#">{{nombres}} &nbsp;<span uk-icon="chevron-down"></span></a>
+                          <a href="#">{{nombres}} &nbsp;<span uk-icon="chevron-down" style="color:#ffffff;"></span></a>
                           <div uk-dropdown="pos: bottom-right; mode: click; offset: -17;">
                               <ul class="uk-nav uk-navbar-dropdown-nav">
                                   <li class="uk-nav-header">Acciones</li>
@@ -46,45 +47,57 @@
       </div>
   </div>
   <div  id="reveal" uk-offcanvas="mode:slide;" style="">
-    <div class="uk-offcanvas-bar" style="top:0px; width:280px; position:fixed; background-color:#5000ca; color:#ffffff;">
+    <div class="uk-offcanvas-bar" style="top:0px; width:280px; position:fixed; background-color:#ffffff; color:#000;">
 
         
 
-        <ul class="uk-nav uk-nav-default" style="padding-left:0px; padding-right:0px; color:#fffff;">
+        <ul class="uk-nav uk-nav-default" style="padding-left:0px; padding-right:0px; color:#000;">
   
-          <li class="uk-nav-header uk-text-center" style="padding-left:0px; padding-right:0px; color:#ffffff;">
-            <p class="uk-text-capitalize" style="color:#ffffff; margin:0;">Bienvenido, {{nombres}}</p>
+          <li class="uk-nav-header uk-text-center" style="padding-left:0px; padding-right:0px; color:#000;">
+            <p class="uk-text-capitalize" style="color:#000; margin:0;">Bienvenido, {{nombres}}</p>
           </li>
 
           <li class="uk-text-center">
             <span class="uk-text-center" style="width:auto;">{{correo}}</span>
         </li>
-        {% if current_user.role == True  %}
-        <li class="uk-nav-header uk-text-left uk-text-capitalize" style="color:#ffffff; font-weight:bold;">Administrar Usuarios</li>
 
-        <li><a href="/crearusuario"><i class="fas fa-user-plus"></i> Crear Usuario Admin</a></li>
-        <li><a href="/listarusuarios"><i class="fas fa-users-cog"></i> Administrar Usuarios</a></li>
+        {% if current_user.role == True  %}
+        <li class="uk-nav-header uk-text-left uk-text-capitalize" style="color:#000; font-weight:bold;">Administrar Usuarios</li>
+
+        <li><a href="/crearusuario" style="color:#000;"><i class="fas fa-user-plus" style="color:#000;"></i> Crear Usuario Admin</a></li>
+        <li><a href="/listarusuarios" style="color:#000;"><i class="fas fa-users-cog" style="color:#000;"></i> Administrar Usuarios</a></li>
         <hr style="border-color:#d5d8dc;" class="uk-margin-small">
 
-          <li class="uk-nav-header uk-text-left uk-text-capitalize" style="color:#ffffff;">Administrar Clientes</li>
+          <li class="uk-nav-header uk-text-left uk-text-capitalize" style="color:#000; font-weight:bold;">Administrar Clientes</li>
 
-          <li><a href="/crearcliente"><i class="far fa-plus-square"></i> Crear cliente</a></li>
-          <li><a href="/listarclientes"><i class="fas fa-cogs"></i> Administrar Clientes</a></li>
+          <li><a href="/crearcliente" style="color:#000;"><i class="fa-regular fa-square-plus" style="color:#000;"></i> Crear cliente</a></li>
+          <li><a href="/listarclientes" style="color:#000;"><i class="fa-solid fa-gear" style="color:#000;"></i> Administrar Clientes</a></li>
           <hr style="border-color:#d5d8dc;" class="uk-margin-small">
 
-          <li class="uk-nav-header uk-text-left uk-text-capitalize" style="color:#ffffff;">Administrar Asesores</li>
+          <li class="uk-nav-header uk-text-left uk-text-capitalize" style="color:#000; font-weight:bold;">Administrar Asesores</li>
 
-          <li><a href="/crearasesor">Crear Asesor</a></li>
-          <li><a href="/listarasesor">Administrar Asesor</a></li>
+          <li><a href="/crearasesor" style="color:#000;"><i class="fa-solid fa-user-secret" style="color:#000;"></i> Crear Asesor</a></li>
+          <li><a href="/listarasesor" style="color:#000;"><i class="fa-solid fa-gear" style="color:#000;"></i> Administrar Asesor</a></li>
+          <hr style="border-color:#d5d8dc;" class="uk-margin-small">
 
-          <li class="uk-nav-header uk-text-left uk-text-capitalize" style="color:#ffffff;">Administrar Servicios</li>
+          <li class="uk-nav-header uk-text-left uk-text-capitalize" style="color:#000; font-weight:bold;">Administrar Servicios</li>
 
-          <li><a href="/crearservicio">Crear Servicio</a></li>
-          <li><a href="/lista_de_servicios">Administrar Servicio</a></li>
+          <li><a href="/crearservicio" style="color:#000;"><i class="fa-regular fa-square-plus" style="color:#000;"></i> Crear Servicio</a></li>
+          <li><a href="/lista_de_servicios" style="color:#000;"><i class="fa-solid fa-gear" style="color:#000;"></i> Administrar Servicio</a></li>
+          <hr style="border-color:#d5d8dc;" class="uk-margin-small">
+
+          <li class="uk-nav-header uk-text-left uk-text-capitalize" style="color:#000; font-weight:bold;">Administrar Solicitudes</li>
          
-          <li><a href="tables.html">Crear Proyecto</a></li>
-          <li><a href="tables.html">Actualizar Proyecto</a></li>
-         <hr style="border-color:#d5d8dc;" class="uk-margin-small">
+          <li><a href="/crearsolicitud" style="color:#000;"><i class="fa-regular fa-square-plus" style="color:#000;"></i> Añadir Solicitud a Clientes</a></li>
+          <li><a href="/gestionar-solicitudes" style="color:#000;"><i class="fa-solid fa-gear" style="color:#000;"></i> Gestionar Solicitudes</a></li>
+          
+          <hr style="border-color:#d5d8dc;" class="uk-margin-small">
+
+          <li class="uk-nav-header uk-text-left uk-text-capitalize" style="color:#000; font-weight:bold;">Administrar Cotizaciones</li>
+         
+          <li><a href="/gestionar-cotizaciones" style="color:#000;"><i class="fa-solid fa-gear" style="color:#000;"></i> Gestionar Cotizaciones</a></li>
+         
+          <hr style="border-color:#d5d8dc;" class="uk-margin-small">
       </ul>
 
     </div>

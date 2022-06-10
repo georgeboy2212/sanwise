@@ -38,10 +38,21 @@
 {% endwith %}
 
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#5000ca" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,197.3C384,181,480,139,576,117.3C672,96,768,96,864,96C960,96,1056,96,1152,128C1248,160,1344,224,1392,256L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+</svg>
 
+<div style="margin-top:0px; margin-left:60px;">
+  <ul class="uk-breadcrumb">
+   <li><a href="/homecrm" class="underline" style="font-family:'Open Sans', sans-serif; color:#000;">Inicio</a></li>
+   <li><a href="/lista_de_servicios" class="underline" style="font-family:'Open Sans', sans-serif; color:#000; font-weight:bold">Administrar Servicio</a></li>
+   
 
-<div class="uk-position-center uk-card uk-card-default uk-card-primary uk-width-1-1" style="margin-top:60px; border-radius:18px; padding:40px; margin-left:auto; margin-right:auto;">
-<h2 class="uk-text-center" style="padding-top:50px; font-family:Montserrat, sans-serif; font-weight:bold;"><i class="fas fa-exclamation-circle" style="color: #fe0051;"></i> Estás seguro que deseas editar este Servicio?</h2>
+</ul>
+</div>
+
+<div class="uk-card" style="margin-top:0px; border-radius:18px; margin-left:auto; margin-right:auto; width:90%;">
+<h2 class="uk-text-center" style="padding-top:50px; font-family:Montserrat, sans-serif; font-weight:bold;"><i class="fa-solid fa-circle-exclamation fa-bounce" style="color: #fe0051;"></i> Estás seguro que deseas editar este Servicio?</h2>
 <p class="uk-text-center" style="font-family:Montserrat, sans-serif;">Ingresa los datos del servicio que deseas editar</p>
 
 <form action="{{ url_for('editarservicio', id=id)}}" method = 'post' class="uk-width-1-1 uk-grid-small uk-text-center" uk-grid style="margin-left:auto; margin-right:auto;">
@@ -49,7 +60,7 @@
   
   
   <div class="uk-width-1-1@s uk-card uk-card-body uk-text-left" style="padding-left:0px; padding-right:0px;  font-family:Montserrat, sans-serif; margin-left:auto; margin-right:auto;">
-    <input class="uk-input" type='text' name="nombre_servicio" value="{{editarServicio.nombre_servicio}}">
+    <input class="uk-input" type='text' name="nombre_servicio" value="{{editarServicio.nombre_servicio}}" style="border-radius:18px;">
   </div>
    
     
@@ -61,14 +72,18 @@
   -->
 
   <div class="uk-width-1-1 uk-margin uk-text-center" style="margin-top:20px;">
-    <a class="uk-button uk-button-default" href="/lista_de_servicios">Volver</a>
-    <input class="uk-text-center uk-button uk-button-primary" type='submit', value='Editar'>
+    <a class="uk-button uk-button-secondary button_slide slide_right" href="/lista_de_servicios" style="border-radius:18px;">Volver</a>
+    <input class="uk-text-center uk-button uk-button-primary button_slide slide_right" type='submit', value='Editar' style="border-radius:18px;">
 
 </div>
 
 
 </form>
 </div>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#5000ca" fill-opacity="1" d="M0,128L60,117.3C120,107,240,85,360,74.7C480,64,600,64,720,101.3C840,139,960,213,1080,229.3C1200,245,1320,203,1380,181.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+</svg>
  
 
 {% endblock %}
