@@ -31,8 +31,10 @@ import pdfkit
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '6&GhN4$qAo68-jE+_xY3erty69dpdof*3gdfgfgdjfjekesaassasaas4$'
+
 app.config['SECURITY_PASSWORD_SALT'] ='9HDg49$=_QKHWPYNKRHjnthro903jxidjshñkñjkhshsqj47-'
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://PLJlQvbfL9:UIRr5KvlDw@remotemysql.com/PLJlQvbfL9"
+#app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://PLJlQvbfL9:UIRr5KvlDw@remotemysql.com/PLJlQvbfL9"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://gehimqvtcjatis:78a057d9eb69e05432288a07e3c05c8c6d2a3a852e50b31fe79f0f04e26e1043@ec2-52-3-2-245.compute-1.amazonaws.com:5432/d7mpvg4qk2la4c"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {"pool_pre_ping": True, "pool_recycle": 300}
 app.config['WHOOSH_BASE'] = '/home/georgeboy/jose-project/whoosh'
